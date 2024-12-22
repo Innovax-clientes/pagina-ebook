@@ -9,949 +9,1251 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
 
-<style>
-/* =========================================
-   VARIÁVEIS GLOBAIS
-   ========================================= */
+<style>/* =========================================
+  VARIÁVEIS GLOBAIS APRIMORADAS
+  ========================================= */
 :root {
-  --font-body: 'Outfit', sans-serif;
-  --font-title: 'Playfair Display', serif;
-  --text-color: #eee;
-  --text-muted: #bbb;
-  --bg: #050505;
-  --accent1: #00ffd5;
-  --accent2: #00b5ff;
-  --accent3: #b580ff;
-  --accent4: #ff00dd;
-  --accent5: #fff700;
-  --accent-gradient: linear-gradient(135deg, var(--accent1) 0%, var(--accent2) 25%, var(--accent3) 50%, var(--accent4) 75%, var(--accent5) 100%);
-  --transition: 0.3s ease;
-  --max-width: 1200px;
-  --section-padding: 80px;
-  --card-bg: #000;
-  --card-border: #222;
-  --glass-bg: rgba(0,0,0,0.4);
-  --glass-blur: blur(12px);
-  --highlight-bg: rgba(255,0,90,0.15);
-  --accent-color: var(--accent1);
+ /* Tipografia */
+ --font-body: 'Outfit', sans-serif;
+ --font-title: 'Playfair Display', serif;
+
+ /* Cores */
+ --color-bg: #0a0a0a;
+ --color-bg-secondary: #141a20;
+ --color-text: #e0e0e0;
+ --color-text-muted: #a0a0a0;
+ --color-accent1: #00c4b4;
+ --color-accent2: #00a8e8;
+ --color-accent3: #b3a6ff;
+ --color-accent4: #ff66b2;
+ --color-accent5: #ffd700;
+ --color-border: #333;
+ --color-shadow: rgba(0, 255, 255, 0.1);
+ --color-shadow-hover: rgba(0, 255, 255, 0.3);
+ --color-highlight-bg: rgba(255, 255, 255, 0.1);
+
+ /* Gradientes */
+ --accent-gradient: linear-gradient(135deg, var(--color-accent1), var(--color-accent2), var(--color-accent3), var(--color-accent4), var(--color-accent5));
+
+ /* Transições */
+ --transition: 0.3s ease;
+
+ /* Layout */
+ --max-width: 1200px;
+ --section-padding: 80px;
+ --border-radius: 12px;
+}
+
+/* =========================================
+  RESET BÁSICO
+  ========================================= */
+* {
+ margin: 0;
+ padding: 0;
+ box-sizing: border-box;
 }
 
 body {
-  margin:0; 
-  padding:0;
-  background: var(--bg);
-  color: var(--text-color);
-  font-family: var(--font-body);
-  -webkit-font-smoothing: antialiased;
-  overflow-x:hidden;
-  scroll-behavior:smooth;
-  position:relative;
+ font-family: var(--font-body);
+ background: var(--color-bg);
+ color: var(--color-text);
+ overflow-x: hidden;
+ scroll-behavior: smooth;
+ position: relative;
+ -webkit-font-smoothing: antialiased;
 }
 
-/* BG animado global */
+/* =========================================
+  BG ANIMADO GLOBAL
+  ========================================= */
 body::before {
-  content:"";
-  position:fixed;
-  top:0;left:0;right:0;bottom:0;
-  background: radial-gradient(at 20% 30%, rgba(0,255,255,0.07), transparent 20%) 0 0,
-              radial-gradient(at 80% 70%, rgba(255,0,255,0.05), transparent 20%) 100% 100%;
-  background-size:50% 50%, 50% 50%;
-  pointer-events:none;
-  z-index:-10;
-  animation: floatBg 30s infinite alternate ease-in-out;
+ content: "";
+ position: fixed;
+ top: 0;
+ left: 0;
+ right: 0;
+ bottom: 0;
+ background: radial-gradient(at 20% 30%, rgba(0, 255, 255, 0.07), transparent 20%) 0 0,
+             radial-gradient(at 80% 70%, rgba(255, 0, 255, 0.05), transparent 20%) 100% 100%;
+ background-size: 50% 50%, 50% 50%;
+ pointer-events: none;
+ z-index: -10;
+ animation: floatBg 30s infinite alternate ease-in-out;
 }
+
 @keyframes floatBg {
-  0% {transform:translate(0,0);}
-  100% {transform:translate(-20px,20px);}
+ 0% { transform: translate(0, 0); }
+ 100% { transform: translate(-20px, 20px); }
 }
 
-/* LINKS */
+/* =========================================
+  LINKS
+  ========================================= */
 a {
-  text-decoration:none; 
-  color:inherit;
-  transition: color var(--transition);
+ text-decoration: none;
+ color: inherit;
+ transition: color var(--transition);
 }
+
 a:hover {
-  color: var(--accent1);
+ color: var(--color-accent1);
 }
 
-/* HEADER */
+/* =========================================
+  HEADER
+  ========================================= */
 header {
-  position:fixed; 
-  top:0; 
-  left:0; 
-  right:0;
-  z-index:999;
-  background: var(--glass-bg);
-  backdrop-filter: var(--glass-blur);
-  box-shadow:0 2px 15px rgba(0,0,0,0.6);
-  transition: background var(--transition);
+ position: fixed;
+ top: 0;
+ left: 0;
+ right: 0;
+ z-index: 999;
+ background: rgba(255, 255, 255, 0.05);
+ backdrop-filter: blur(12px);
+ box-shadow: 0 2px 15px rgba(0, 0, 0, 0.6);
+ transition: background var(--transition);
 }
+
 .nav-container {
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  height:70px;
-  padding:0 20px;
-  max-width: var(--max-width);
-  margin:0 auto;
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+ height: 70px;
+ padding: 0 20px;
+ max-width: var(--max-width);
+ margin: 0 auto;
 }
+
 .logo a {
-  font-family:var(--font-title);
-  font-size:1.8rem;
-  font-weight:900;
-  text-transform:uppercase;
-  letter-spacing:0.5px;
-  background: var(--accent-gradient);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  cursor:pointer;
-  text-shadow:0 0 5px rgba(0,255,255,0.4);
-  transition:opacity var(--transition), transform var(--transition);
+ font-family: var(--font-title);
+ font-size: 1.8rem;
+ font-weight: 900;
+ text-transform: uppercase;
+ letter-spacing: 0.5px;
+ background: var(--accent-gradient);
+ -webkit-background-clip: text;
+ -webkit-text-fill-color: transparent;
+ cursor: pointer;
+ text-shadow: 0 0 5px rgba(0, 255, 255, 0.4);
+ transition: opacity var(--transition), transform var(--transition);
 }
+
 .logo a:hover {
-  opacity:0.8;
-  transform:scale(1.05);
+ opacity: 0.8;
+ transform: scale(1.05);
 }
+
 .navbar ul {
-  list-style:none;
-  display:flex;
-  gap:30px;
-  align-items:center;
-  margin:0;
-  padding:0;
-  font-weight:500;
+ list-style: none;
+ display: flex;
+ gap: 30px;
+ align-items: center;
+ margin: 0;
+ padding: 0;
+ font-weight: 500;
 }
+
 .navbar a {
-  color:#fff;
-  position:relative;
-  font-size:0.95rem;
-  padding:8px 0;
+ color: #fff;
+ position: relative;
+ font-size: 0.95rem;
+ padding: 8px 0;
 }
+
 .navbar a::after {
-  content:"";
-  position:absolute;
-  bottom:-2px; left:50%;
-  transform:translateX(-50%);
-  width:0%; 
-  height:2px;
-  background: var(--accent-gradient);
-  transition:width 0.3s ease;
-  border-radius:2px;
+ content: "";
+ position: absolute;
+ bottom: -2px;
+ left: 50%;
+ transform: translateX(-50%);
+ width: 0%;
+ height: 2px;
+ background: var(--accent-gradient);
+ transition: width 0.3s ease;
+ border-radius: 2px;
 }
+
 .navbar a:hover::after {
-  width:50%;
+ width: 50%;
 }
 
-/* MENU MOBILE */
+/* =========================================
+  MENU MOBILE
+  ========================================= */
 .hamburger {
-  display:none;
-  cursor:pointer;
-  padding:10px;
-  border-radius:8px;
-  transition:background var(--transition);
+ display: none;
+ cursor: pointer;
+ padding: 10px;
+ border-radius: 8px;
+ transition: background var(--transition);
 }
+
 .hamburger:hover {
-  background:rgba(255,255,255,0.1);
+ background: rgba(255, 255, 255, 0.1);
 }
+
 .hamburger span {
-  display:block;
-  width:25px; 
-  height:3px; 
-  background:#fff; 
-  margin:5px 0;
-  transition:transform 0.3s ease, background 0.3s ease;
-  border-radius:2px;
+ display: block;
+ width: 25px;
+ height: 3px;
+ background: #fff;
+ margin: 5px 0;
+ transition: transform 0.3s ease, background 0.3s ease;
+ border-radius: 2px;
 }
+
 .hamburger.open span:nth-child(1) {
-  transform:translateY(8px) rotate(45deg);
+ transform: translateY(8px) rotate(45deg);
 }
+
 .hamburger.open span:nth-child(2) {
-  opacity:0;
+ opacity: 0;
 }
+
 .hamburger.open span:nth-child(3) {
-  transform:translateY(-8px) rotate(-45deg);
+ transform: translateY(-8px) rotate(-45deg);
 }
+
 .navbar ul.active {
-  position:absolute;
-  top:70px;
-  right:20px;
-  background: var(--glass-bg);
-  backdrop-filter: var(--glass-blur);
-  border-radius:8px;
-  padding:20px;
-  box-shadow:0 8px 20px rgba(0,0,0,0.7);
-  display:flex;
-  flex-direction:column;
-  gap:10px;
-  animation: fadeIn 0.3s ease forwards;
+ position: absolute;
+ top: 70px;
+ right: 20px;
+ background: rgba(255, 255, 255, 0.05);
+ backdrop-filter: blur(12px);
+ border-radius: 8px;
+ padding: 20px;
+ box-shadow: 0 8px 20px rgba(0, 0, 0, 0.7);
+ display: flex;
+ flex-direction: column;
+ gap: 10px;
+ animation: fadeIn 0.3s ease forwards;
 }
+
 @keyframes fadeIn {
-  0% {opacity:0; transform:translateY(-10px);}
-  100% {opacity:1; transform:translateY(0);}
+ 0% { opacity: 0; transform: translateY(-10px); }
+ 100% { opacity: 1; transform: translateY(0); }
 }
 
-/* SCROLL ANIMATIONS */
+/* =========================================
+  SCROLL ANIMATIONS
+  ========================================= */
 [data-animate] {
-  opacity:0;
-  transform: translateY(20px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
+ opacity: 0;
+ transform: translateY(20px);
+ transition: opacity 0.6s ease, transform 0.6s ease;
 }
+
 [data-animate].reveal {
-  opacity:1;
-  transform: translateY(0);
+ opacity: 1;
+ transform: translateY(0);
 }
 
-/* HERO */
+/* =========================================
+  HERO SECTION
+  ========================================= */
 .hero {
-  position: relative;
-  padding: 100px 20px; 
-  background: linear-gradient(135deg, #000, #050505 50%, #0a0a0a);
-  overflow: hidden;
+ position: relative;
+ padding: 120px 20px;
+ background: linear-gradient(135deg, #000, #050505 50%, #0a0a0a);
+ overflow: hidden;
+ text-align: center;
 }
+
 .hero::before, .hero::after {
-  content: "";
-  position: absolute;
-  width: 200px;
-  height: 200px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(0,255,255,0.1), transparent 60%);
-  animation: floatParticles 10s infinite ease-in-out alternate;
-  opacity: 0.05;
+ content: "";
+ position: absolute;
+ width: 200px;
+ height: 200px;
+ border-radius: 50%;
+ background: radial-gradient(circle, rgba(0, 255, 255, 0.05), transparent 60%);
+ animation: floatParticles 10s infinite ease-in-out alternate;
+ opacity: 0.05;
 }
+
 .hero::before {
-  top: 20%;
-  left: 10%;
+ top: 20%;
+ left: 10%;
 }
+
 .hero::after {
-  bottom: 20%;
-  right: 15%;
-  animation-delay: 2s;
+ bottom: 20%;
+ right: 15%;
+ animation-delay: 2s;
 }
+
 @keyframes floatParticles {
-  0% { transform: translateY(0) scale(1); }
-  100% { transform: translateY(-20px) scale(1.1); }
+ 0% { transform: translateY(0) scale(1); }
+ 100% { transform: translateY(-20px) scale(1.2); }
 }
+
 .hero-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
+ max-width: var(--max-width);
+ margin: 0 auto;
+ display: flex;
+ flex-wrap: wrap;
+ align-items: center;
+ justify-content: space-between;
+ gap: 40px;
 }
+
 .hero-text {
-  flex: 1 1 500px;
-  max-width: 600px;
-  margin-bottom: 40px;
-  position: relative;
-  z-index: 1;
+ flex: 1 1 500px;
+ max-width: 600px;
+ position: relative;
+ z-index: 1;
 }
+
 .hero-text::before {
-  content: "";
-  position: absolute;
-  top: -10%;
-  left: -10%;
-  width: 120%;
-  height: 120%;
-  background: radial-gradient(circle at center, rgba(255,0,90,0.06), transparent 70%);
-  z-index: -1;
-  filter: blur(10px);
+ content: "";
+ position: absolute;
+ top: -10%;
+ left: -10%;
+ width: 120%;
+ height: 120%;
+ background: radial-gradient(circle at center, rgba(255, 0, 90, 0.06), transparent 70%);
+ z-index: -1;
+ filter: blur(10px);
 }
+
 .hero-text h1 {
-  font-family: var(--font-title);
-  font-size: 3rem;
-  line-height: 1.3;
-  font-weight: 900;
-  margin-bottom: 20px;
-  text-shadow: 0 0 5px rgba(255,255,255,0.1);
-  opacity:0;transform:translateY(20px);
-  animation: heroFadeIn 1s forwards 0.2s;
+ font-family: var(--font-title);
+ font-size: 3.5rem;
+ line-height: 1.2;
+ font-weight: 900;
+ margin-bottom: 20px;
+ text-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+ opacity: 0;
+ transform: translateY(20px);
+ animation: heroFadeIn 1s forwards 0.2s;
 }
+
 .hero-text h1 .highlight {
-  background: linear-gradient(to right, var(--accent1), var(--accent4));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  position: relative;
-  padding: 0 5px;
-  font-weight: 900;
-  transition: text-shadow 0.3s ease;
+ background: linear-gradient(to right, var(--color-accent1), var(--color-accent4));
+ -webkit-background-clip: text;
+ -webkit-text-fill-color: transparent;
+ padding: 0 5px;
+ font-weight: 900;
+ transition: text-shadow 0.3s ease;
 }
+
 .hero-text h1 .highlight:hover {
-  text-shadow: 0 0 10px rgba(0,255,255,0.5);
+ text-shadow: 0 0 15px rgba(0, 255, 255, 0.7);
 }
+
 .hero-text .highlight-strong {
-  background: linear-gradient(to right, var(--accent2), var(--accent3));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  padding: 2px 4px;
-  border-radius: 4px;
-  font-weight: 700;
+ background: linear-gradient(to right, var(--color-accent2), var(--color-accent3));
+ -webkit-background-clip: text;
+ -webkit-text-fill-color: transparent;
+ padding: 2px 4px;
+ border-radius: 4px;
+ font-weight: 700;
 }
+
 .hero-text p {
-  font-size: 1.2rem;
-  color: #bbb;
-  margin-bottom: 30px;
-  opacity:0;transform:translateY(20px);
-  animation: heroFadeIn 1s forwards 0.4s;
+ font-size: 1.3rem;
+ color: var(--color-text-muted);
+ margin-bottom: 30px;
+ opacity: 0;
+ transform: translateY(20px);
+ animation: heroFadeIn 1s forwards 0.4s;
 }
+
 .hero-rating {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-  opacity:0;transform:translateY(20px);
-  animation: heroFadeIn 1s forwards 0.6s;
+ display: flex;
+ align-items: center;
+ gap: 20px;
+ opacity: 0;
+ transform: translateY(20px);
+ animation: heroFadeIn 1s forwards 0.6s;
 }
-@keyframes heroFadeIn {
-  to {
-    opacity:1;transform:translateY(0);
-  }
-}
+
 .hero-avatars {
-  display: flex;
-  align-items: center;
+ display: flex;
+ align-items: center;
 }
+
 .hero-avatars img {
-  width: 45px;
-  height: 45px;
-  border-radius: 50%;
-  object-fit: cover;
-  margin-right: -10px; 
-  border: 2px solid var(--bg);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  box-shadow: 0 0 5px rgba(0,255,255,0.2);
+ width: 50px;
+ height: 50px;
+ border-radius: 50%;
+ object-fit: cover;
+ margin-right: -10px;
+ border: 2px solid var(--color-bg);
+ box-shadow: 0 0 5px rgba(0, 255, 255, 0.2);
+ transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
+
 .hero-avatars img:hover {
-  transform: scale(1.15);
-  box-shadow: 0 4px 14px rgba(255,0,90,0.3);
-  z-index: 1;
+ transform: scale(1.2);
+ box-shadow: 0 4px 14px rgba(255, 0, 90, 0.3);
+ z-index: 1;
 }
+
 .hero-stars {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-weight: bold;
+ display: flex;
+ align-items: center;
+ gap: 10px;
+ font-weight: bold;
 }
+
 .hero-stars .stars {
-  font-size: 1.2rem;
-  color: #ff0;
-  text-shadow: 0 0 5px rgba(255,215,0,0.5);
-  cursor: pointer;
-  transition: transform 0.3s ease;
+ font-size: 1.4rem;
+ color: #ffd700;
+ text-shadow: 0 0 5px rgba(255, 215, 0, 0.5);
+ cursor: pointer;
+ transition: transform 0.3s ease;
 }
+
 .hero-stars .stars:hover {
-  transform: scale(1.1);
+ transform: scale(1.2);
 }
+
 .hero-stars .rating-score {
-  font-size: 0.9rem;
-  color: var(--text-muted);
+ font-size: 1rem;
+ color: var(--color-text-muted);
 }
+
 .hero-image {
-  flex: 1 1 400px;
-  max-width: 500px;
-  display: flex;
-  justify-content: flex-end;
-  padding: 20px;
-  position: relative;
+ flex: 1 1 500px;
+ max-width: 700px;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ padding: 20px;
+ position: relative;
 }
-.hero-image::before {
-  content: "";
-  position: absolute;
-  right: -60px;
-  bottom: -60px;
-  width: 250px;
-  height: 250px;
-  background: radial-gradient(circle at bottom right, rgba(255,0,90,0.2), transparent 60%);
-  z-index: -1;
-  transform: rotate(20deg) scale(1.1);
+
+.hero-image video {
+ width: 100%;
+ height: auto;
+ border-radius: 12px;
 }
-.hero-image img {
-  max-width: 100%;
-  height: auto;
-  border-radius: 12px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.5);
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
-}
-.hero-image img:hover {
-  transform: scale(1.08) rotate(1deg);
-  box-shadow: 0 12px 30px rgba(255,0,90,0.4);
-}
-/* Botão principal Hero */
+
+/* Botão Principal Hero */
 .hero-cta {
-  display:inline-block;
-  margin-top:30px;
-  padding:14px 36px;
-  border-radius:30px;
-  background: var(--accent-gradient);
-  color:#000;
-  font-weight:700;
-  font-size:1.1rem;
-  text-transform:uppercase;
-  letter-spacing:0.5px;
-  box-shadow:0 4px 12px rgba(0,255,255,0.3);
-  position:relative;
-  overflow:hidden;
-  cursor:pointer;
-  transition: transform var(--transition), box-shadow var(--transition), opacity var(--transition);
-  animation: pulseGlow 3s infinite alternate ease-in-out;
-  opacity:0;transform:translateY(20px);
-  animation: heroFadeIn 1s forwards 0.8s;
+ display: inline-block;
+ margin-top: 30px;
+ padding: 14px 36px;
+ border-radius: 30px;
+ background: var(--accent-gradient);
+ color: #000;
+ font-weight: 700;
+ font-size: 1.1rem;
+ text-transform: uppercase;
+ letter-spacing: 0.5px;
+ box-shadow: 0 4px 12px rgba(0, 255, 255, 0.3);
+ position: relative;
+ overflow: hidden;
+ cursor: pointer;
+ transition: transform var(--transition), box-shadow var(--transition), opacity var(--transition);
+ opacity: 0;
+ transform: translateY(20px);
+ animation: heroFadeIn 1s forwards 0.8s;
 }
-@keyframes pulseGlow {
-  0% {box-shadow:0 4px 12px rgba(0,255,255,0.3);}
-  100% {box-shadow:0 8px 24px rgba(0,255,255,0.6);}
-}
+
 .hero-cta::before {
-  content:"";
-  position:absolute;
-  inset:0;
-  background:linear-gradient(90deg, rgba(255,255,255,0.1), transparent);
-  transform:translateX(-100%);
-  transition:transform 0.5s ease;
+ content: "";
+ position: absolute;
+ inset: 0;
+ background: linear-gradient(90deg, rgba(255, 255, 255, 0.1), transparent);
+ transform: translateX(-100%);
+ transition: transform 0.5s ease;
 }
+
 .hero-cta:hover::before {
-  transform:translateX(100%);
+ transform: translateX(100%);
 }
+
 .hero-cta:hover {
-  transform:translateY(-2px) scale(1.05);
-  opacity:0.9;
+ transform: translateY(-2px) scale(1.05);
+ opacity: 0.95;
 }
 
-/* SEÇÕES GERAIS */
+@keyframes heroFadeIn {
+ to {
+   opacity: 1;
+   transform: translateY(0);
+ }
+}
+
+/* =========================================
+  SEÇÕES GERAIS APRIMORADAS
+  ========================================= */
 section {
-  padding: var(--section-padding) 20px;
-  background:#0a0a0a;
-  position:relative;
-  overflow:hidden;
-  text-align:center;
+ padding: var(--section-padding) 20px;
+ background: var(--color-bg);
+ position: relative;
+ overflow: hidden;
+ text-align: center;
 }
+
 section h2 {
-  font-family:var(--font-title);
-  font-size:2.2rem;
-  font-weight:900;
-  color:#fff;
-  margin-bottom:20px;
-  position:relative;
-  padding-bottom:10px;
-  text-shadow:0 0 8px rgba(0,255,255,0.3);
-  text-transform: uppercase;
-  letter-spacing: 1px;
+ font-family: var(--font-title);
+ font-size: 2.2rem;
+ font-weight: 900;
+ color: #fff;
+ margin-bottom: 20px;
+ text-transform: uppercase;
+ letter-spacing: 1px;
+ position: relative;
+ padding-bottom: 10px;
+ text-shadow: 0 0 8px rgba(0, 255, 255, 0.3);
 }
+
 section h2::before {
-  content:"";
-  position:absolute;
-  left:50%;
-  transform:translateX(-50%);
-  bottom:0;
-  width:60px;
-  height:2px;
-  background: var(--accent1);
-  border-radius:2px;
-  box-shadow:0 0 5px var(--accent1);
+ content: "";
+ position: absolute;
+ left: 50%;
+ bottom: 0;
+ transform: translateX(-50%);
+ width: 60px;
+ height: 2px;
+ background: var(--color-accent1);
+ border-radius: 2px;
+ box-shadow: 0 0 5px var(--color-accent1);
 }
+
 section p {
-  font-size:1rem;
-  color:var(--text-muted);
-  max-width:700px;
-  margin:0 auto 50px;
-  line-height:1.7em;
+ font-size: 1rem;
+ color: var(--color-text-muted);
+ max-width: 700px;
+ margin: 0 auto 50px;
+ line-height: 1.7em;
 }
+
 section::before, section::after {
-  content:"";
-  position:absolute;
-  width:100px; height:100px;
-  background: radial-gradient(var(--accent1), transparent);
-  border-radius:50%;
-  opacity:0.05;
-  animation: floatSection 10s infinite alternate ease-in-out;
+ content: "";
+ position: absolute;
+ width: 100px;
+ height: 100px;
+ background: radial-gradient(var(--color-accent1), transparent);
+ border-radius: 50%;
+ opacity: 0.05;
+ animation: floatSection 10s infinite alternate ease-in-out;
 }
+
 section::before {
-  top:10%; left:15%;
+ top: 10%;
+ left: 15%;
 }
+
 section::after {
-  bottom:20%; right:10%;
-  animation-delay:3s;
+ bottom: 20%;
+ right: 10%;
+ animation-delay: 3s;
 }
+
 @keyframes floatSection {
-  0% {transform:translateY(0) scale(1);}
-  100% {transform:translateY(-20px) scale(1.2);}
+ 0% { transform: translateY(0) scale(1); }
+ 100% { transform: translateY(-20px) scale(1.2); }
 }
+
 .container {
-  width:90%;
-  max-width:var(--max-width);
-  margin:0 auto;
+ width: 90%;
+ max-width: var(--max-width);
+ margin: 0 auto;
 }
 
-/* EBOOKS */
-.ebooks {
-  background:#111;
-}
-.ebook-grid {
-  display:flex;
-  flex-wrap:wrap;
-  gap:30px;
-  justify-content:center;
-  margin-bottom:40px;
-}
-.ebook-card {
-  background:#000;
-  border:1px solid #222;
-  border-radius:12px;
-  padding:30px;
-  width:280px;
-  text-align:center;
-  transition:transform var(--transition), box-shadow var(--transition);
-  box-shadow:0 4px 8px rgba(0,255,255,0.1);
-  position:relative;
-  overflow:hidden;
-}
-.ebook-card:hover {
-  transform:translateY(-4px) scale(1.02);
-  box-shadow:0 8px 20px rgba(0,255,255,0.3);
-}
-.ebook-card::after {
-  content:"";
-  position:absolute;
-  top:10px; right:10px; bottom:10px; left:10px;
-  border:1px solid rgba(255,255,255,0.05);
-  pointer-events:none;
-  border-radius:10px;
-  transition:border-color var(--transition);
-}
-.ebook-card:hover::after {
-  border-color:rgba(255,255,255,0.1);
-}
-.ebook-card img {
-  max-width:60px;
-  margin-bottom:20px;
-  transition:transform var(--transition), filter var(--transition);
-}
-.ebook-card img:hover {
-  transform:rotate(5deg) scale(1.1);
-  filter: drop-shadow(0 0 5px var(--accent1));
-}
-.ebook-card h3 {
-  font-family:var(--font-title);
-  font-size:1.4rem;
-  color:#fff;
-  margin-bottom:10px;
-  font-weight:700;
-  text-shadow:0 0 5px rgba(0,255,255,0.3);
-}
-.ebook-card p {
-  font-size:0.95rem;
-  color:var(--text-muted);
-  line-height:1.5em;
-  margin-bottom:20px;
-}
-.ebook-card .ebook-buy-btn {
-  display:inline-block;
-  padding:10px 24px;
-  border-radius:30px;
-  background: var(--accent-gradient);
-  color:#000;
-  font-weight:700;
-  font-size:0.9rem;
-  text-transform:uppercase;
-  letter-spacing:0.5px;
-  box-shadow:0 4px 12px rgba(0,255,255,0.3);
-  position:relative;
-  overflow:hidden;
-  cursor:pointer;
-  transition: transform var(--transition), box-shadow var(--transition), opacity var(--transition);
-  margin-top:10px;
-}
-.ebook-card .ebook-buy-btn::before {
-  content:"";
-  position:absolute;
-  inset:0;
-  background:linear-gradient(90deg, rgba(255,255,255,0.1), transparent);
-  transform:translateX(-100%);
-  transition:transform 0.5s ease;
-}
-.ebook-card .ebook-buy-btn:hover::before {
-  transform:translateX(100%);
-}
-.ebook-card .ebook-buy-btn:hover {
-  transform:translateY(-2px) scale(1.03);
-  opacity:0.9;
-}
-
-/* Botão Comprar Todos Ebooks */
-.buy-ebooks-btn {
-  display:inline-block;
-  padding:14px 36px;
-  border-radius:30px;
-  background: var(--accent-gradient);
-  color:#000;
-  font-weight:700;
-  font-size:1.1rem;
-  text-transform:uppercase;
-  letter-spacing:0.5px;
-  box-shadow:0 4px 12px rgba(0,255,255,0.3);
-  position:relative;
-  overflow:hidden;
-  cursor:pointer;
-  transition: transform var(--transition), box-shadow var(--transition), opacity var(--transition);
-  animation: pulseGlow 3s infinite alternate ease-in-out;
-}
-
-/* PROFESSORA CRIS */
-.prof-cris {
-  background: var(--bg-color);
-  padding: 80px 20px;
-  overflow: hidden;
-  position: relative;
-  text-align: center;
-}
-.prof-cris::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(circle at top left, rgba(255,0,90,0.05), transparent 50%), 
-              radial-gradient(circle at bottom right, rgba(0,255,255,0.04), transparent 50%);
-  z-index: -1;
-}
-.prof-cris-container {
-  max-width: 800px;
-  margin: 0 auto;
-  position: relative;
-  padding: 0 20px;
-}
-.prof-cris h2 {
-  font-family: var(--font-title);
-  font-size: 2rem;
-  font-weight: 900;
-  margin-bottom: 40px;
-  position: relative;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-}
-.prof-cris h2 span {
-  color: var(--accent-color);
-  display: inline-block;
-  background: var(--highlight-bg);
-  padding: 4px 8px;
-  border-radius: 4px;
-}
-.image-card {
-  max-width: 150px;
-  margin: 0 auto 30px;
-  overflow: hidden;
-  border-radius: 50%;
-  border: 3px solid rgba(0,255,255,0.2);
-  box-shadow: 0 4px 12px rgba(0,255,255,0.2);
-  transition: transform var(--transition), box-shadow var(--transition);
-  position: relative;
-}
-.image-card img {
-  width: 100%;
-  display: block;
-}
-.image-card:hover {
-  transform: scale(1.1);
-  box-shadow: 0 8px 24px rgba(0,255,255,0.3);
-}
-.prof-cris-content {
-  text-align: left;
-  margin-top: 40px;
-}
-.prof-cris p {
-  color: var(--text-muted);
-  line-height: 1.7em;
-  font-size: 1rem;
-  margin-bottom: 20px;
-  position: relative;
-}
-.prof-cris p strong {
-  color: var(--accent-color);
-  font-weight: 700;
-}
-.prof-cris .highlight {
-  color: var(--accent-color);
-  background: var(--highlight-bg);
-  padding: 2px 4px;
-  border-radius: 4px;
-}
-/* CTA no bloco da Cris */
-.prof-cris-cta {
-  display:inline-block;
-  margin-top:30px;
-  padding:14px 36px;
-  border-radius:30px;
-  background: var(--accent-gradient);
-  color:#000;
-  font-weight:700;
-  font-size:1.1rem;
-  text-transform:uppercase;
-  letter-spacing:0.5px;
-  box-shadow:0 4px 12px rgba(0,255,255,0.3);
-  position:relative;
-  overflow:hidden;
-  cursor:pointer;
-  transition: transform var(--transition), box-shadow var(--transition), opacity var(--transition);
-}
-.prof-cris-cta::before {
-  content:"";
-  position:absolute;
-  top:0;left:0;right:0;bottom:0;
-  background:linear-gradient(90deg, rgba(255,255,255,0.1), transparent);
-  transform:translateX(-100%);
-  transition:transform 0.5s ease;
-}
-.prof-cris-cta:hover::before {
-  transform:translateX(100%);
-}
-.prof-cris-cta:hover {
-  transform:translateY(-2px) scale(1.05);
-  opacity:0.9;
-}
-
-/* MÉTODO PE 900+ */
-.metodo {
-  background: black;
-  text-align: left;
-  position: relative;
-  padding: 80px 20px;
-  border-top: 1px solid rgba(255,255,255,0.05);
-  border-bottom: 1px solid rgba(255,255,255,0.05);
-  overflow: hidden;
-}
-.metodo::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(circle at bottom right, rgba(0,255,255,0.05), transparent 60%),
-              radial-gradient(circle at top left, rgba(255,0,90,0.05), transparent 50%);
-  z-index: -1;
-}
-.metodo .container {
-  max-width: 800px;
-  margin: 0 auto;
-  position: relative;
-}
-.metodo h2 {
-  font-family: var(--font-title);
-  font-size: 2rem;
-  font-weight: 900;
-  text-align: center;
-  margin-bottom: 40px;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  position: relative;
-}
-.metodo h2 span {
-  color: var(--accent-color);
-  background: var(--highlight-bg);
-  padding: 4px 8px;
-  border-radius: 4px;
-}
-.metodo p {
-  text-align: center;
-  margin-bottom: 30px;
-  color: var(--text-muted);
-  line-height: 1.7em;
-  font-size: 1rem;
-  max-width: 700px;
-  margin: 0 auto 30px;
-}
-.metodo p strong {
-  color: #fff;
-  font-weight: 700;
-}
-.metodo .highlight {
-  color: var(--accent-color);
-  background: var(--highlight-bg);
-  padding: 2px 4px;
-  border-radius: 4px;
-}
-
-/* Steps do método */
-.steps-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 30px;
-  margin-top: 50px;
-}
-@media (max-width: 600px) {
-  .steps-grid {
-    grid-template-columns: 1fr;
-  }
-}
-.method-step {
-  background: #000;
-  border: 1px solid #222;
-  border-radius: 12px;
-  padding: 20px;
-  position: relative;
-  box-shadow: 0 4px 8px rgba(0,255,255,0.1);
-  transition: transform var(--transition), box-shadow var(--transition);
-  overflow: hidden;
-}
-.step-icon {
-  position: absolute;
-  top: 20px; 
-  left: 20px;
-  width: 40px; height: 40px;
-  background: var(--accent1);
-  color: #000;
-  font-weight: 900;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  border-radius:50%;
-  font-size:1rem;
-  box-shadow: 0 0 10px rgba(0,255,255,0.5);
-}
-.method-step strong {
-  display: block;
-  font-family: var(--font-title);
-  font-size: 1.2rem;
-  color: #fff;
-  margin-bottom: 10px;
-  text-shadow: 0 0 3px rgba(0,255,255,0.3);
-  padding-left: 60px;
-}
-.method-step p {
-  color: var(--text-muted);
-  font-size: 0.95rem;
-  line-height: 1.5em;
-  padding-left: 60px;
-}
-.method-step:hover {
-  transform: translateY(-4px) scale(1.02);
-  box-shadow: 0 8px 20px rgba(0,255,255,0.3);
-}
-
-/* CURSO COMPLETO */
+/* =========================================
+  CURSO COMPLETO APRIMORADO
+  ========================================= */
 .curso-completo {
-  background: linear-gradient(135deg, #0b0e13 20%, #141a20 100%);
-  text-align: left;
-  position: relative;
-  padding: 80px 20px;
-  overflow: hidden;
-}
-.curso-completo .container {
-  max-width: 800px;
-  margin: 0 auto;
-  position: relative;
-}
-.curso-completo h2 {
-  font-family: var(--font-title);
-  font-size: 2rem;
-  font-weight: 900;
-  text-align: center;
-  margin-bottom: 40px;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  color: #fff;
-  position: relative;
-}
-.curso-completo p {
-  margin-bottom: 30px;
-  color: var(--text-muted);
-  line-height: 1.7em;
-  font-size: 1rem;
-  text-align: center;
-  max-width: 700px;
-  margin: 0 auto 30px;
+ background: linear-gradient(135deg, #0b0e13 20%, var(--color-bg-secondary) 100%);
+ text-align: center;
 }
 
-/* Antes dos módulos, adicionaremos a introdução "O que você irá aprender?" */
+.curso-completo .container {
+ max-width: var(--max-width);
+ margin: 0 auto;
+}
+
+.curso-completo h2 {
+ font-family: var(--font-title);
+ font-size: 2.5rem;
+ font-weight: 900;
+ text-transform: uppercase;
+ color: #fff;
+ margin-bottom: 20px;
+ letter-spacing: 1.5px;
+}
+
+.curso-completo p {
+ color: var(--color-text-muted);
+ font-size: 1.1rem;
+ line-height: 1.8em;
+ max-width: 800px;
+ margin: 0 auto 40px;
+}
+
 .curso-completo h3.intro-modulos {
-  font-family: var(--font-title);
-  font-size: 1.8rem;
-  font-weight: 900;
-  color: #fff;
-  text-align: center;
-  margin-bottom: 50px;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  text-shadow:0 0 5px rgba(0,255,255,0.3);
+ font-family: var(--font-title);
+ font-size: 2rem;
+ font-weight: 700;
+ color: #fff;
+ margin-bottom: 40px;
+ letter-spacing: 1px;
+ text-transform: uppercase;
+ text-shadow: 0 0 5px rgba(0, 255, 255, 0.3);
 }
 
 .modules-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 40px;
-  margin-top: 40px;
-  position: relative;
+ display: grid;
+ grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+ gap: 30px;
 }
+
 .module-card {
-  background: #000;
-  border: 1px solid #222;
-  border-radius: 12px;
-  padding: 30px;
-  position: relative;
-  box-shadow: 0 4px 8px rgba(0,255,255,0.1);
-  transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
-  overflow: hidden;
+ background: #1e1e1e;
+ border: 1px solid var(--color-border);
+ border-radius: var(--border-radius);
+ padding: 25px;
+ box-shadow: 0 4px 10px var(--color-shadow);
+ transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
+ position: relative;
+ overflow: hidden;
 }
+
 .module-card::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(circle at top right, var(--accent-color) 0%, transparent 60%);
-  opacity: 0.05;
-  pointer-events: none;
+ content: "";
+ position: absolute;
+ inset: 0;
+ background: radial-gradient(circle at top right, var(--color-accent1) 0%, transparent 60%);
+ opacity: 0.05;
+ pointer-events: none;
 }
+
 .module-card:hover {
-  transform: translateY(-4px) scale(1.02);
-  box-shadow: 0 8px 20px rgba(0,255,255,0.3);
-  border-color: rgba(0,255,255,0.2);
+ transform: translateY(-5px) scale(1.02);
+ box-shadow: 0 12px 24px var(--color-shadow-hover);
+ border-color: rgba(0, 255, 255, 0.2);
 }
-.module-card h3 {
-  font-family: var(--font-title);
-  font-size: 1.3rem;
-  font-weight: 700;
-  color: #fff;
-  margin-bottom: 20px;
-  position: relative;
-  text-shadow: 0 0 5px rgba(0,255,255,0.3);
-  padding-right: 50px;
+
+.module-card h4 {
+ font-family: var(--font-title);
+ font-size: 1.4rem;
+ font-weight: 700;
+ color: #fff;
+ margin-bottom: 15px;
+ text-shadow: 0 0 5px rgba(0, 255, 255, 0.3);
+ position: relative;
 }
-.module-card h3::after {
-  content: "";
-  position: absolute;
-  right: 0; 
-  bottom: 0;
-  width: 40px;
-  height: 3px;
-  background: var(--accent-color);
-  border-radius: 4px;
-  transform: translateY(150%);
+
+.module-card h4::after {
+ content: "";
+ position: absolute;
+ bottom: -5px;
+ left: 0;
+ width: 50px;
+ height: 3px;
+ background: var(--color-accent1);
+ border-radius: 2px;
 }
+
 .module-card ul {
-  list-style: disc;
-  padding-left: 20px;
-  color: var(--text-muted);
-  margin-bottom: 0;
-  line-height: 1.5em;
+ list-style: disc inside;
+ color: var(--color-text-muted);
+ font-size: 1rem;
+ line-height: 1.6em;
 }
 
-/* RESPONSIVIDADE */
-@media (max-width:768px) {
-  .navbar ul {display:none;}
-  .hamburger {display:flex; flex-direction:column; gap:5px;}
-  .hero-text h1 {
-    font-size:2.4rem;
-  }
-  .prof-cris p, .metodo p, .curso-completo p, .method-step p, .module-card ul {
-    font-size:0.95rem;
-  }
+/* =========================================
+  PREÇO DO CURSO APRIMORADO
+  ========================================= */
+.preco-curso {
+ background: rgba(0, 0, 0, 0.85);
+ border: 1px solid var(--color-accent1);
+ border-radius: var(--border-radius);
+ padding: 35px;
+ margin-top: 60px;
+ box-shadow: 0 6px 15px rgba(0, 255, 255, 0.2);
+ transition: transform var(--transition), box-shadow var(--transition);
 }
 
-/* FOOTER */
+.preco-curso:hover {
+ transform: translateY(-5px) scale(1.02);
+ box-shadow: 0 16px 30px rgba(0, 255, 255, 0.3);
+}
+
+.preco-curso h3 {
+ font-family: var(--font-title);
+ font-size: 2rem;
+ color: #fff;
+ margin-bottom: 15px;
+ text-shadow: 0 0 5px rgba(0, 255, 255, 0.3);
+}
+
+.preco-curso p.preco {
+ font-size: 2.5rem;
+ color: var(--color-accent1);
+ font-weight: 700;
+ margin-bottom: 10px;
+}
+
+.preco-curso p.parcelamento {
+ font-size: 1.1rem;
+ color: var(--color-text-muted);
+ margin-bottom: 25px;
+}
+
+.preco-curso .cta-preco {
+ display: inline-block;
+ padding: 12px 30px;
+ border-radius: 30px;
+ background: var(--accent-gradient);
+ color: #000;
+ font-family: var(--font-title);
+ font-weight: 700;
+ font-size: 1rem;
+ text-transform: uppercase;
+ letter-spacing: 0.5px;
+ box-shadow: 0 4px 10px rgba(0, 255, 255, 0.3);
+ position: relative;
+ overflow: hidden;
+ cursor: pointer;
+ transition: transform var(--transition), box-shadow var(--transition), opacity var(--transition);
+ text-decoration: none;
+}
+
+.preco-curso .cta-preco::before {
+ content: "";
+ position: absolute;
+ inset: 0;
+ background: linear-gradient(90deg, rgba(255, 255, 255, 0.1), transparent);
+ transform: translateX(-100%);
+ transition: transform 0.5s ease;
+}
+
+.preco-curso .cta-preco:hover::before {
+ transform: translateX(100%);
+}
+
+.preco-curso .cta-preco:hover {
+ transform: translateY(-2px) scale(1.05);
+ opacity: 0.95;
+}
+
+/* =========================================
+  TESTEMUNHOS APRIMORADOS
+  ========================================= */
+.testemunhos {
+ background: rgba(0, 0, 0, 0.8);
+ border: 1px solid var(--color-accent1);
+ border-radius: var(--border-radius);
+ padding: 30px;
+ margin-top: 50px;
+ box-shadow: 0 4px 12px rgba(0, 255, 255, 0.2);
+ transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.testemunhos:hover {
+ transform: translateY(-4px) scale(1.02);
+ box-shadow: 0 8px 24px rgba(0, 255, 255, 0.3);
+}
+
+.testemunhos h3 {
+ font-family: var(--font-title);
+ font-size: 1.6rem;
+ color: #fff;
+ margin-bottom: 20px;
+ text-shadow: 0 0 5px rgba(0, 255, 255, 0.3);
+}
+
+.testemunhos p {
+ color: var(--color-text-muted);
+ font-size: 1rem;
+ line-height: 1.7em;
+ margin-bottom: 10px;
+}
+
+.testemunhos .autor {
+ font-weight: 700;
+ color: var(--color-accent1);
+}
+
+/* =========================================
+  CHAMADA PARA AÇÃO FINAL APRIMORADA
+  ========================================= */
+.cta-final {
+ margin-top: 40px;
+}
+
+.cta-final .cta-final-btn {
+ display: inline-block;
+ padding: 15px 35px;
+ border-radius: 30px;
+ background: var(--accent-gradient);
+ color: #000;
+ font-family: var(--font-title);
+ font-weight: 700;
+ font-size: 1.1rem;
+ text-transform: uppercase;
+ letter-spacing: 0.5px;
+ box-shadow: 0 4px 10px rgba(0, 255, 255, 0.3);
+ transition: transform var(--transition), box-shadow var(--transition);
+ text-decoration: none;
+}
+
+.cta-final .cta-final-btn:hover {
+ transform: translateY(-2px) scale(1.05);
+ box-shadow: 0 8px 20px rgba(0, 255, 255, 0.4);
+}
+
+/* =========================================
+  MÉTODO PE 900+ APRIMORADO
+  ========================================= */
+.metodo {
+ background: #000;
+ border-top: 1px solid rgba(255, 255, 255, 0.05);
+ border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+ text-align: center;
+ padding: 80px 20px;
+}
+
+.metodo .container {
+ max-width: var(--max-width);
+ margin: 0 auto;
+}
+
+.metodo h2 {
+ font-family: var(--font-title);
+ font-size: 2.5rem;
+ font-weight: 900;
+ color: #fff;
+ margin-bottom: 25px;
+ text-transform: uppercase;
+ letter-spacing: 1.5px;
+ position: relative;
+ text-shadow: 0 0 8px rgba(0, 255, 255, 0.3);
+}
+
+.metodo h2 span {
+ color: var(--color-accent1);
+ background: var(--color-highlight-bg);
+ padding: 5px 10px;
+ border-radius: 5px;
+}
+
+.metodo p {
+ color: var(--color-text-muted);
+ font-size: 1.1rem;
+ line-height: 1.8em;
+ max-width: 800px;
+ margin: 0 auto 25px;
+}
+
+.metodo p strong {
+ color: #fff;
+ font-weight: 700;
+}
+
+.metodo .highlight {
+ color: var(--color-accent1);
+ background: var(--color-highlight-bg);
+ padding: 3px 6px;
+ border-radius: 4px;
+}
+
+.steps-grid {
+ display: grid;
+ grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+ gap: 30px;
+ margin-top: 40px;
+}
+
+.method-step {
+ background: #1e1e1e;
+ border: 1px solid var(--color-border);
+ border-radius: var(--border-radius);
+ padding: 20px;
+ position: relative;
+ box-shadow: 0 4px 10px var(--color-shadow);
+ transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.method-step:hover {
+ transform: translateY(-5px) scale(1.02);
+ box-shadow: 0 12px 24px var(--color-shadow-hover);
+}
+
+.method-step .step-icon {
+ width: 40px;
+ height: 40px;
+ background: var(--color-accent1);
+ color: #000;
+ border-radius: 50%;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ font-weight: 700;
+ margin: 0 auto 15px;
+ font-size: 1.2rem;
+}
+
+.method-step strong {
+ display: block;
+ font-family: var(--font-title);
+ font-size: 1.2rem;
+ color: #fff;
+ margin-bottom: 10px;
+}
+
+.method-step p {
+ color: var(--color-text-muted);
+ font-size: 1rem;
+ line-height: 1.6em;
+}
+
+/* =========================================
+  RESPONSIVIDADE APRIMORADA
+  ========================================= */
+@media (max-width: 768px) {
+ /* Navbar */
+ .navbar ul {
+   display: none;
+ }
+ 
+ .hamburger {
+   display: flex;
+   flex-direction: column;
+   gap: 5px;
+ }
+
+ /* Hero Section */
+ .hero-text h1 {
+   font-size: 2.4rem;
+ }
+
+ .prof-cris p,
+ .metodo p,
+ .curso-completo p,
+ .method-step p,
+ .module-card ul {
+   font-size: 0.95rem;
+ }
+
+ /* Grid Ajustes */
+ .modules-grid,
+ .steps-grid {
+   grid-template-columns: 1fr;
+ }
+
+ /* Hero Rating */
+ .hero-rating {
+   flex-direction: column;
+   gap: 10px;
+ }
+
+ /* CTA Buttons */
+ .hero-cta,
+ .preco-curso .cta-preco,
+ .prof-cris-cta,
+ .ebook-card .ebook-buy-btn {
+   font-size: 1rem;
+ }
+}
+
+/* =========================================
+  PROFESSORA CRIS
+  ========================================= */
+.prof-cris {
+ background: var(--color-bg);
+ padding: 80px 20px;
+ overflow: hidden;
+ position: relative;
+ text-align: center;
+}
+
+.prof-cris::before {
+ content: "";
+ position: absolute;
+ inset: 0;
+ background: radial-gradient(circle at top left, rgba(255, 0, 90, 0.05), transparent 50%), 
+             radial-gradient(circle at bottom right, rgba(0, 255, 255, 0.04), transparent 50%);
+ z-index: -1;
+}
+
+.prof-cris-container {
+ max-width: 800px;
+ margin: 0 auto;
+ position: relative;
+ padding: 0 20px;
+}
+
+.prof-cris h2 {
+ font-family: var(--font-title);
+ font-size: 2rem;
+ font-weight: 900;
+ margin-bottom: 40px;
+ text-transform: uppercase;
+ letter-spacing: 1px;
+ color: #fff;
+ text-shadow: 0 0 8px rgba(0, 255, 255, 0.3);
+}
+
+.prof-cris h2 span {
+ color: var(--color-accent1);
+ display: inline-block;
+ background: var(--color-highlight-bg);
+ padding: 4px 8px;
+ border-radius: 4px;
+}
+
+.image-card {
+ max-width: 150px;
+ margin: 0 auto 30px;
+ overflow: hidden;
+ border-radius: 50%;
+ border: 3px solid rgba(0, 255, 255, 0.2);
+ box-shadow: 0 4px 12px rgba(0, 255, 255, 0.2);
+ transition: transform var(--transition), box-shadow var(--transition);
+ position: relative;
+}
+
+.image-card img {
+ width: 100%;
+ display: block;
+}
+
+.image-card:hover {
+ transform: scale(1.1);
+ box-shadow: 0 8px 24px rgba(0, 255, 255, 0.3);
+}
+
+.prof-cris-content {
+ text-align: left;
+ margin-top: 40px;
+}
+
+.prof-cris p {
+ color: var(--color-text-muted);
+ line-height: 1.7em;
+ font-size: 1rem;
+ margin-bottom: 20px;
+}
+
+.prof-cris p strong {
+ color: var(--color-accent1);
+ font-weight: 700;
+}
+
+.prof-cris .highlight {
+ color: var(--color-accent1);
+ background: var(--color-highlight-bg);
+ padding: 2px 4px;
+ border-radius: 4px;
+}
+
+.prof-cris-cta {
+ display: inline-block;
+ margin-top: 30px;
+ padding: 14px 36px;
+ border-radius: 30px;
+ background: var(--accent-gradient);
+ color: #000;
+ font-weight: 700;
+ font-size: 1.1rem;
+ text-transform: uppercase;
+ letter-spacing: 0.5px;
+ box-shadow: 0 4px 12px rgba(0, 255, 255, 0.3);
+ position: relative;
+ overflow: hidden;
+ cursor: pointer;
+ transition: transform var(--transition), box-shadow var(--transition), opacity var(--transition);
+}
+
+.prof-cris-cta::before {
+ content: "";
+ position: absolute;
+ inset: 0;
+ background: linear-gradient(90deg, rgba(255, 255, 255, 0.1), transparent);
+ transform: translateX(-100%);
+ transition: transform 0.5s ease;
+}
+
+.prof-cris-cta:hover::before {
+ transform: translateX(100%);
+}
+
+.prof-cris-cta:hover {
+ transform: translateY(-2px) scale(1.05);
+ opacity: 0.9;
+}
+
+/* =========================================
+  EBOOKS APRIMORADOS
+  ========================================= */
+.ebooks {
+ background: #111;
+}
+
+.ebook-grid {
+ display: flex;
+ flex-wrap: wrap;
+ gap: 30px;
+ justify-content: center;
+ margin-bottom: 40px;
+}
+
+.ebook-card {
+ background: #000;
+ border: 1px solid var(--color-border);
+ border-radius: var(--border-radius);
+ padding: 30px;
+ width: 280px;
+ text-align: center;
+ transition: transform var(--transition), box-shadow var(--transition);
+ box-shadow: 0 4px 8px var(--color-shadow);
+ position: relative;
+ overflow: hidden;
+}
+
+.ebook-card:hover {
+ transform: translateY(-4px) scale(1.02);
+ box-shadow: 0 8px 20px var(--color-shadow-hover);
+}
+
+.ebook-card::after {
+ content: "";
+ position: absolute;
+ top: 10px;
+ right: 10px;
+ bottom: 10px;
+ left: 10px;
+ border: 1px solid rgba(255, 255, 255, 0.05);
+ pointer-events: none;
+ border-radius: 10px;
+ transition: border-color var(--transition);
+}
+
+.ebook-card:hover::after {
+ border-color: rgba(255, 255, 255, 0.1);
+}
+
+.ebook-card img {
+ max-width: 60px;
+ margin-bottom: 20px;
+ transition: transform var(--transition), filter var(--transition);
+}
+
+.ebook-card img:hover {
+ transform: rotate(5deg) scale(1.1);
+ filter: drop-shadow(0 0 5px var(--color-accent1));
+}
+
+.ebook-card h3 {
+ font-family: var(--font-title);
+ font-size: 1.4rem;
+ color: #fff;
+ margin-bottom: 10px;
+ font-weight: 700;
+ text-shadow: 0 0 5px rgba(0, 255, 255, 0.3);
+}
+
+.ebook-card p {
+ font-size: 0.95rem;
+ color: var(--color-text-muted);
+ line-height: 1.5em;
+ margin-bottom: 20px;
+}
+
+.ebook-card .ebook-buy-btn {
+ display: inline-block;
+ padding: 10px 24px;
+ border-radius: 30px;
+ background: var(--accent-gradient);
+ color: #000;
+ font-weight: 700;
+ font-size: 0.9rem;
+ text-transform: uppercase;
+ letter-spacing: 0.5px;
+ box-shadow: 0 4px 12px rgba(0, 255, 255, 0.3);
+ position: relative;
+ overflow: hidden;
+ cursor: pointer;
+ transition: transform var(--transition), box-shadow var(--transition), opacity var(--transition);
+ margin-top: 10px;
+}
+
+.ebook-card .ebook-buy-btn::before {
+ content: "";
+ position: absolute;
+ inset: 0;
+ background: linear-gradient(90deg, rgba(255, 255, 255, 0.1), transparent);
+ transform: translateX(-100%);
+ transition: transform 0.5s ease;
+}
+
+.ebook-card .ebook-buy-btn:hover::before {
+ transform: translateX(100%);
+}
+
+.ebook-card .ebook-buy-btn:hover {
+ transform: translateY(-2px) scale(1.03);
+ opacity: 0.9;
+}
+
+/* =========================================
+  FOOTER APRIMORADO
+  ========================================= */
 footer {
-  background:#000;
-  color:#bbb;
-  text-align:center;
-  padding:20px;
-  font-size:0.9rem;
-  border-top:1px solid rgba(255,255,255,0.05);
+ background: #000;
+ color: #bbb;
+ text-align: center;
+ padding: 20px;
+ font-size: 0.9rem;
+ border-top: 1px solid rgba(255, 255, 255, 0.05);
 }
+
 footer a {
-  color:var(--accent1);
+ color: var(--color-accent1);
+}
+
+/* =========================================
+  RESPONSIVIDADE APRIMORADA GERAL
+  ========================================= */
+@media (max-width: 768px) {
+ .navbar ul {
+   display: none;
+ }
+ 
+ .hamburger {
+   display: flex;
+   flex-direction: column;
+   gap: 5px;
+ }
+
+ /* Hero Section */
+ .hero-text h1 {
+   font-size: 2.4rem;
+ }
+
+ .prof-cris p,
+ .metodo p,
+ .curso-completo p,
+ .method-step p,
+ .module-card ul {
+   font-size: 0.95rem;
+ }
+
+ /* Grid Ajustes */
+ .modules-grid,
+ .steps-grid {
+   grid-template-columns: 1fr;
+ }
+
+ /* Hero Rating */
+ .hero-rating {
+   flex-direction: column;
+   gap: 10px;
+ }
+
+ /* CTA Buttons */
+ .hero-cta,
+ .preco-curso .cta-preco,
+ .prof-cris-cta,
+ .ebook-card .ebook-buy-btn {
+   font-size: 1rem;
+ }
 }
 </style>
 </head>
@@ -965,10 +1267,10 @@ footer a {
     <nav class="navbar" aria-label="Menu Principal">
       <ul>
         <li><a href="#hero">Início</a></li>
-        <li><a href="#ebooks">Ebooks</a></li>
-        <li><a href="#prof-cris">Prof. Cris</a></li>
-        <li><a href="#metodo">Método PE 900+</a></li>
         <li><a href="#curso">Curso</a></li>
+        <li><a href="#metodo">Método</a></li>
+        <li><a href="#prof-cris">Prof. Cris</a></li>
+        <li><a href="#ebooks">Ebooks</a></li>
       </ul>
     </nav>
     <button class="hamburger" aria-label="Abrir menu">
@@ -978,14 +1280,15 @@ footer a {
 </header>
 
 <main>
+  
+  <!-- Seção Hero -->
   <section class="hero" id="hero">
     <div class="hero-container">
       <div class="hero-text">
         <h1>
-          Conheça o <span class="highlight">Método</span> que vai te fazer 
-          <span class="highlight">tirar  900+</span>no ENEM.
+          Conheça o <span class="highlight">Curso Completo</span> que irá te conduzir a <span class="highlight">900+</span> na Redação do ENEM.
         </h1>
-        <p>Sem precisar me preocupar com o <strong class="highlight-strong">TEMA</strong> da Redação</p>
+        <p>Aprenda o <strong class="highlight-strong">Método PE 900+</strong> e desenvolva redações estratégicas e imbatíveis.</p>
         
         <div class="hero-rating">
           <div class="hero-avatars">
@@ -1001,31 +1304,211 @@ footer a {
           </div>
         </div>
         
-        <!-- CTA principal do Hero -->
-        <a href="#ebooks" class="hero-cta">Quero Começar Agora</a>
+        <!-- CTA principal do Hero agora para o curso -->
+        <a href="#preco" class="hero-cta">Quero Começar Agora</a>
       </div>
       <div class="hero-image">
-        <img src="imgs/ebooks.png" alt="Imagem ilustrativa de ebooks e cursos" loading="lazy">
+        <video autoplay muted loop playsinline>
+          <source src="imgs/HEADER.mp4" type="video/mp4">
+          Seu navegador não suporta a tag de vídeo.
+        </video>
+      </div>
+    </div>
+  </section>
+  <!-- CURSO COMPLETO -->
+<section class="curso-completo" id="curso">
+  <div class="container">
+    <!-- Introdução do Curso -->
+    <div class="curso-intro" data-animate>
+      <h2>Curso Completo de Redação – Aulas On-line</h2>
+      <p>
+        Domine cada etapa da escrita: do entendimento do tema e competências à proposta de intervenção sólida. Aprenda a elaborar uma redação imbatível, aplicando o <strong>Método PE 900+</strong> e assegurando a pontuação máxima.
+      </p>
+    </div>
+
+    <!-- Benefícios do Curso -->
+    <div class="curso-beneficios" data-animate>
+      <h3>Por que escolher o Curso PE 900+?</h3>
+      <ul>
+        <li><span class="beneficio-icon">✔️</span> Método comprovado para alcançar mais de 900 pontos.</li>
+        <li><span class="beneficio-icon">✔️</span> Aulas 100% online, acessíveis de qualquer lugar.</li>
+        <li><span class="beneficio-icon">✔️</span> Suporte personalizado com a Professora Cris.</li>
+        <li><span class="beneficio-icon">✔️</span> Material exclusivo e atualizações contínuas.</li>
+        <li><span class="beneficio-icon">✔️</span> Garantia de satisfação ou seu dinheiro de volta.</li>
+      </ul>
+    </div>
+
+    <!-- Conteúdo do Curso (Módulos) -->
+    <div class="curso-modulos" data-animate>
+      <h3>O que você irá aprender?</h3>
+      <div class="modules-grid">
+        <article class="module-card">
+          <h4>Módulo 1 – Desvendando o Tema de Redação</h4>
+          <ul>
+            <li>O que é a Redação do ENEM</li>
+            <li>Competências avaliadas na Redação</li>
+            <li>Leitura da proposta</li>
+            <li>Técnica do DESCOMPASSO</li>
+          </ul>
+        </article>
+
+        <article class="module-card">
+          <h4>Módulo 2 – Abordagem do Tema, Tese e Antecipação Argumentativa</h4>
+          <ul>
+            <li>Como fazer a abordagem do tema</li>
+            <li>Tipos de abordagem temática</li>
+            <li>O que é uma tese?</li>
+            <li>Como formular uma tese?</li>
+            <li>Regras fundamentais da tese</li>
+            <li>O que é Antecipação Argumentativa e como formulá-la</li>
+          </ul>
+        </article>
+
+        <article class="module-card">
+          <h4>Módulo 3 – Tópico Frasal e Repertório Sociocultural</h4>
+          <ul>
+            <li>O que é Tópico Frasal?</li>
+            <li>Como formular o Tópico Frasal?</li>
+            <li>O que é um Repertório Sociocultural?</li>
+            <li>Tipos de Repertórios Socioculturais</li>
+            <li>Como tornar o repertório produtivo na Redação?</li>
+          </ul>
+        </article>
+
+        <article class="module-card">
+          <h4>Módulo 4 – Aprofundamento Argumentativo e Fechamento do Parágrafo</h4>
+          <ul>
+            <li>O que é Aprofundamento Argumentativo?</li>
+            <li>Técnica da Lógica + Evidência no aprofundamento argumentativo</li>
+            <li>Principais erros na argumentação</li>
+            <li>Como encerrar o parágrafo de desenvolvimento</li>
+            <li>Exemplos de encerramento</li>
+          </ul>
+        </article>
+
+        <article class="module-card">
+          <h4>Módulo 5 – Conclusão</h4>
+          <ul>
+            <li>O que é uma Proposta de Intervenção?</li>
+            <li>Como iniciar a conclusão?</li>
+            <li>Quais são os elementos de uma proposta completa?</li>
+            <li>Fechamento da Redação</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+
+    <!-- Investimento e Formas de Pagamento -->
+    <div class="preco-curso" id="preco" data-animate>
+      <h3>Investimento no Curso PE 900+</h3>
+      <p class="preco">Valor: R$ 2.100</p>
+      <p class="parcelamento">Ou em até 10x de R$ 210 sem juros</p>
+      <a href="#inscricao" class="cta-preco">Inscreva-se Agora</a>
+    </div>
+
+    <!-- Testemunhos de Alunos -->
+    <div class="testemunhos" data-animate>
+      <h3>O que nossos alunos dizem</h3>
+      <p>"Com o Método PE 900+, consegui aumentar minha pontuação na redação em 300 pontos! Recomendo a todos que desejam excelência." <span class="autor">- João Silva</span></p>
+      <p>"A estrutura e as estratégias ensinadas foram fundamentais para minha aprovação. Muito obrigado, Prof. Cris!" <span class="autor">- Maria Fernanda</span></p>
+    </div>
+
+    <!-- Chamada para Ação Final -->
+    <div class="cta-final" data-animate>
+      <a href="#preco" class="cta-final-btn">Garanta Sua Vaga</a>
+    </div>
+  </div>
+</section>
+
+<!-- MÉTODO PE 900+ -->
+<section class="metodo" id="metodo">
+  <div class="container">
+    <h2 data-animate>Método <span>PE 900+</span></h2>
+    <p data-animate>
+      O <strong>Método PE 900+</strong> é um método de ensino inovador que coloca o <span class="highlight">planejamento estratégico</span> como etapa-chave para alcançar uma redação acima de <span class="highlight">900 pontos</span> no ENEM. Ele guia você na construção de um texto coerente, argumentativo e consistente, tornando o processo de escrita mais assertivo e seguro.
+    </p>
+
+    <p data-animate><strong>Como o Método PE 900+ pode ajudar o aluno?</strong></p>
+    <p data-animate><strong>Planejamento Antecipado e Visão Clara:</strong> O foco é no desenvolvimento de um esboço eficaz para direcionar a produção.</p>
+    <p data-animate><strong>Estruturação do Texto:</strong> Ensina a criar um “esqueleto” lógico, facilitando a coesão e a coerência do texto.</p>
+    <p data-animate><strong>Repertório Sociocultural Organizado:</strong> Como selecionar e integrar repertórios relevantes e produtivos.</p>
+    <p data-animate><strong>Proposta de Intervenção Viável:</strong> Criação de soluções que demonstram pensamento crítico e visão social.</p>
+    <p data-animate><strong>Controle de Tempo e Revisão:</strong> Estratégias para produzir um texto excelente no tempo limitado da prova.</p>
+    
+    <div class="steps-grid" data-animate>
+      <article class="method-step">
+        <div class="step-icon">1</div>
+        <strong>Planejamento Antecipado</strong>
+        <p>Um esboço eficaz guia sua escrita e garante uma sequência lógica de ideias.</p>
+      </article>
+      <article class="method-step">
+        <div class="step-icon">2</div>
+        <strong>Estruturação Lógica</strong>
+        <p>Crie um “esqueleto” sólido para o texto, facilitando o desenvolvimento coerente.</p>
+      </article>
+      <article class="method-step">
+        <div class="step-icon">3</div>
+        <strong>Repertório Sociocultural</strong>
+        <p>Seleção de conteúdos bem integrados, garantindo profundidade argumentativa.</p>
+      </article>
+      <article class="method-step">
+        <div class="step-icon">4</div>
+        <strong>Proposta de Intervenção</strong>
+        <p>Soluções pertinentes e viáveis, mostrando visão crítica e criativa.</p>
+      </article>
+      <article class="method-step">
+        <div class="step-icon">5</div>
+        <strong>Gestão de Tempo</strong>
+        <p>Otimize sua prova, mantendo a qualidade e a clareza do texto final.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+
+  <!-- PROFESSORA CRIS -->
+  <section class="prof-cris" id="prof-cris">
+    <div class="prof-cris-container">
+      <h2 data-animate>Professora <span>Cris</span> - Redação ENEM</h2>
+      <div class="image-card" data-animate>
+        <img src="imgs/profe.png" alt="Professora Cris sorridente, experiente em redação" loading="lazy">
+      </div>
+      <div class="prof-cris-content">
+        <p data-animate><strong>Quem sou eu?</strong></p>
+        <p data-animate>
+          Sou a Professora Cris, dedicada há 15 anos à preparação de estudantes para o ENEM e Vestibulares. Minha missão é descomplicar a redação, transformando a escrita em um processo estratégico. Acredito no potencial de cada aluno para atingir e superar os 900 pontos na redação.
+        </p>
+        <p data-animate>
+          Minha experiência como corretora em importantes provas nacionais me possibilita entender exatamente o que é avaliado. Assim, ofereço ferramentas e estratégias que transformam sua redação, tornando-a mais clara, profunda e bem fundamentada.
+        </p>
+        <p data-animate>
+          Vamos juntos transformar desafios em conquistas e garantir sua aprovação!
+        </p>
+        
+        <!-- CTA na seção da Professora Cris -->
+        <div data-animate style="text-align:center; margin-top:40px;">
+          <a href="#preco" class="prof-cris-cta">Acessar o Curso</a>
+        </div>
       </div>
     </div>
   </section>
   
-  <!-- EBOOKS -->
+  <!-- EBOOKS (AGORA COMO PRODUTO SECUNDÁRIO) -->
   <section class="ebooks" id="ebooks">
     <div class="container">
-      <h2 data-animate>Ebooks Exclusivos</h2>
-      <p data-animate>Conteúdos selecionados, métodos práticos e insights profundos para elevar seu conhecimento e transformar seus resultados.</p>
+      <h2 data-animate>Ebooks Exclusivos (Produtos Secundários)</h2>
+      <p data-animate>Recursos adicionais para complementar sua jornada: estratégias de estudo, memorização avançada, foco e produtividade.</p>
       <div class="ebook-grid">
         <article class="ebook-card" data-animate>
           <img src="imgs/ebook1.jpg" alt="Capa do Ebook Estratégias de Estudo" loading="lazy">
           <h3>Estratégias de Estudo</h3>
-          <p>Planeje, priorize e estude com inteligência, aproveitando cada minuto.</p>
+          <p>Planeje e priorize para estudar com inteligência.</p>
           <button class="ebook-buy-btn">Quero Este Ebook</button>
         </article>
         <article class="ebook-card" data-animate>
           <img src="imgs/ebook2.jpg" alt="Capa do Ebook Memorização Avançada" loading="lazy">
           <h3>Memorização Avançada</h3>
-          <p>Fixe conteúdo na mente de forma duradoura e eficaz.</p>
+          <p>Fixe conteúdos de forma duradoura e eficaz.</p>
           <button class="ebook-buy-btn">Quero Este Ebook</button>
         </article>
         <article class="ebook-card" data-animate>
@@ -1038,152 +1521,6 @@ footer a {
     </div>
   </section>
 
-  <!-- PROF CRIS -->
-  <section class="prof-cris" id="prof-cris">
-    <div class="prof-cris-container">
-      <h2 data-animate>Professora <span>Cris</span> - Redação ENEM</h2>
-      <div class="image-card" data-animate>
-        <img src="imgs/profe.png" alt="Professora Cris sorridente, experiente em redação" loading="lazy">
-      </div>
-      <div class="prof-cris-content">
-        <p data-animate><strong>Quem sou eu?</strong></p>
-        <p data-animate>
-          Meu nome é Cristina, mais conhecida como Professora Cris. Sou professora de redação e apaixonada por ajudar alunos e professores a superar seus desafios na escrita. Há 15 anos trabalho com a preparação de estudantes para o Enem e Vestibulares, sempre com o objetivo de descomplicar a redação e transformar obstáculos em conquistas.
-        </p>
-        <p data-animate>
-          Durante minha trajetória, percebi que muitas vezes o que impede uma boa redação não é a falta de ideias, mas a ausência de um <strong>Projeto Estratégico</strong> para organizar o texto. Esse projeto auxilia o estudante a dar um grande passo rumo à excelência na redação do ENEM.
-        </p>
-        <p data-animate>
-          Através de uma abordagem prática, contínua e com foco na melhoria constante, o aluno se torna capaz de atingir e superar a pontuação de <span class="highlight">900</span>, destacando-se pela qualidade e profundidade de seus textos, o que é crucial para garantir uma vaga nas melhores universidades.
-        </p>
-        <p data-animate>
-          Minha experiência também inclui a atuação como corretora da redação do Enem e do Vestibular da UFRGS, o que me deu uma visão ainda mais ampla sobre os critérios avaliativos e o que realmente é necessário para alcançar uma redação de excelência. Essas experiências permitem oferecer ferramentas que fazem a diferença, ajudando você a escrever com confiança e segurança.
-        </p>
-        <p data-animate>
-          Acredito que escrever é uma habilidade desenvolvível. Vamos juntos transformar seus desafios em conquistas e garantir sua aprovação!
-        </p>
-        
-        <!-- CTA na seção da Professora Cris -->
-        <div data-animate style="text-align:center; margin-top:40px;">
-          <a href="#metodo" class="prof-cris-cta">Conhecer o Método</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- MÉTODO PE 900+ -->
-  <section class="metodo" id="metodo">
-    <div class="container">
-      <h2 data-animate>Método <span>PE 900+</span></h2>
-      <p data-animate>
-        O <strong>Método PE 900+</strong> é um método de ensino inovador que coloca o <span class="highlight">planejamento estratégico</span> como uma etapa fundamental para alcançar uma redação de sucesso no ENEM. Com foco em atingir uma pontuação superior a <span class="highlight">900</span>, esse método ensina o aluno a estruturar suas ideias de forma clara e eficiente, transformando a redação do ENEM em um processo estratégico, e não apenas uma tarefa de escrita.
-      </p>
-
-      <p data-animate><strong>Como o Método PE 900+ pode ajudar o aluno?</strong></p>
-      <p data-animate><strong>Planejamento Antecipado e Visão Clara:</strong> O foco é no desenvolvimento de um esboço claro e eficaz.</p>
-      <p data-animate><strong>Estruturação do Texto:</strong> O aluno aprende a construir um esqueleto lógico para sua redação.</p>
-      <p data-animate><strong>Repertório Sociocultural Organizado:</strong> Seleção de repertórios relevantes e bem integrados.</p>
-      <p data-animate><strong>Proposta de Intervenção Viável:</strong> Criação de uma proposta sólida, realmente pertinente ao tema.</p>
-      <p data-animate><strong>Controle de Tempo e Revisão:</strong> Uma visão clara do processo, otimizando a produção no tempo limitado da prova.</p>
-      
-      <div class="steps-grid" data-animate>
-        <article class="method-step">
-          <div class="step-icon">1</div>
-          <strong>Planejamento Antecipado</strong>
-          <p>Um esboço eficaz guia sua escrita e garante uma sequência lógica de ideias.</p>
-        </article>
-        <article class="method-step">
-          <div class="step-icon">2</div>
-          <strong>Estruturação Lógica</strong>
-          <p>Crie um “esqueleto” sólido para o texto, facilitando o desenvolvimento coerente.</p>
-        </article>
-        <article class="method-step">
-          <div class="step-icon">3</div>
-          <strong>Repertório Sociocultural</strong>
-          <p>Seleção de conteúdos bem integrados, garantindo profundidade argumentativa.</p>
-        </article>
-        <article class="method-step">
-          <div class="step-icon">4</div>
-          <strong>Proposta de Intervenção</strong>
-          <p>Soluções pertinentes e viáveis, mostrando visão crítica e criativa.</p>
-        </article>
-        <article class="method-step">
-          <div class="step-icon">5</div>
-          <strong>Gestão de Tempo</strong>
-          <p>Otimize sua prova, mantendo a qualidade e a clareza do texto final.</p>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- CURSO COMPLETO -->
-  <section class="curso-completo" id="curso">
-    <div class="container">
-      <h2 data-animate>Curso Completo de Redação – Aulas On-line</h2>
-      <p data-animate>
-        Do entendimento das competências à construção de um texto impecável, passando por tese, tópicos frasais, repertório sociocultural e proposta de intervenção sólida.
-      </p>
-      
-      <h3 class="intro-modulos" data-animate>O que você irá aprender?</h3>
-      
-      <div class="modules-grid" data-animate>
-        <article class="module-card">
-          <h3>Módulo 1 – Desvendando o tema de Redação</h3>
-          <ul>
-            <li>O que é a Redação do ENEM</li>
-            <li>Competências avaliadas na Redação</li>
-            <li>Leitura da proposta</li>
-            <li>Técnica do DESCOMPASSO</li>
-          </ul>
-        </article>
-  
-        <article class="module-card">
-          <h3>Módulo 2 – Abordagem do Tema, Tese e Antecipação Argumentativa</h3>
-          <ul>
-            <li>Como fazer a abordagem do tema</li>
-            <li>Tipos de abordagem temática</li>
-            <li>O que é uma tese?</li>
-            <li>Como formular uma tese?</li>
-            <li>Regras fundamentais da tese</li>
-            <li>O que é Antecipação Argumentativa e como formulá-la</li>
-          </ul>
-        </article>
-  
-        <article class="module-card">
-          <h3>Módulo 3 – Tópico Frasal e Repertório Sociocultural</h3>
-          <ul>
-            <li>O que é Tópico Frasal?</li>
-            <li>Como formular o Tópico Frasal?</li>
-            <li>O que é um Repertório Sociocultural?</li>
-            <li>Tipos de Repertórios Socioculturais</li>
-            <li>Como tornar o repertório produtivo na Redação?</li>
-          </ul>
-        </article>
-  
-        <article class="module-card">
-          <h3>Módulo 4 – Aprofundamento Argumentativo e Fechamento do Parágrafo</h3>
-          <ul>
-            <li>O que é Aprofundamento Argumentativo?</li>
-            <li>Técnica da Lógica + Evidência no aprofundamento argumentativo</li>
-            <li>Principais erros na argumentação</li>
-            <li>Como encerrar o parágrafo de desenvolvimento</li>
-            <li>Exemplos de encerramento</li>
-          </ul>
-        </article>
-  
-        <article class="module-card">
-          <h3>Módulo 5 – Conclusão</h3>
-          <ul>
-            <li>O que é uma Proposta de Intervenção?</li>
-            <li>Como iniciar a conclusão?</li>
-            <li>Quais são os elementos de uma proposta completa?</li>
-            <li>Fechamento da Redação</li>
-          </ul>
-        </article>
-      </div>
-    </div>
-  </section>
-  
 </main>
 
 <footer>
