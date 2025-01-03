@@ -6,6 +6,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <!-- ===============================
+       SEO E SOCIAL
+  ================================ -->
+  <meta name="description" content="Curso completo de redação para o ENEM e vestibulares. Alcance 900+ pontos na redação com o Método PE 900+, desenvolvido pela Professora Cris.">
+  <meta property="og:title" content="Prof. Cris - Alcance 900+ na Redação" />
+  <meta property="og:description" content="Descubra o Método PE 900+ e conquiste notas acima de 900 na redação do ENEM." />
+  <meta property="og:image" content="imgs/social-share.jpg" />
+  <meta property="og:url" content="https://seudominio.com" />
+  <meta property="og:type" content="website" />
+
+  <!-- ===============================
        FONTS
   ================================ -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -42,6 +52,11 @@
       transition: color 0.3s ease;
     }
 
+    a:focus {
+      outline: 2px dashed #fff;
+      outline-offset: 2px;
+    }
+
     ul {
       list-style-type: none;
     }
@@ -74,418 +89,587 @@
     }
 
     /* ===============================
-       HEADER E NAVBAR
+       SKIP TO CONTENT (ACESSIBILIDADE)
     ================================ */
-    header {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      z-index: 999;
-      background-color: rgba(13, 13, 15, 0.7);
-      backdrop-filter: blur(10px);
-      box-shadow: 0 1px 5px rgba(0,0,0,0.5);
-    }
-
-    .nav-container {
-      max-width: var(--max-width);
-      height: 70px;
-      margin: 0 auto;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0 20px;
-    }
-
-    .logo a {
-      font-size: 1.8rem;
-      font-weight: 900;
-      background: var(--gradient-1);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      letter-spacing: 1px;
-      cursor: pointer;
-    }
-
-    nav ul {
-      display: flex;
-      align-items: center;
-      gap: 2rem;
-    }
-
-    nav a {
-      font-weight: 600;
-      position: relative;
-      padding: 10px 0;
-    }
-
-    nav a::after {
-      content: "";
+    .skip-to-content {
       position: absolute;
+      top: -40px;
       left: 0;
-      bottom: 0;
-      width: 0;
-      height: 2px;
-      background-color: #f72585;
-      transition: width 0.3s ease;
-      border-radius: 2px;
-    }
-
-    nav a:hover::after {
-      width: 100%;
-    }
-
-    /* =============
-       HAMBURGUER
-    ==============*/
-    .hamburger {
-      display: none;
-      flex-direction: column;
-      gap: 5px;
-      cursor: pointer;
-    }
-
-    .hamburger span {
-      width: 25px;
-      height: 3px;
-      background: #fff;
-      border-radius: 2px;
-    }
-
-    @media (max-width: 768px) {
-      nav ul {
-        display: none;
-        position: absolute;
-        top: 70px;
-        right: 20px;
-        flex-direction: column;
-        gap: 1rem;
-        background: var(--color-bg-secondary);
-        padding: 20px;
-        border-radius: var(--radius);
-        box-shadow: 0 5px 15px rgba(0,0,0,0.5);
-      }
-      .navbar.open ul {
-        display: flex;
-      }
-      .hamburger {
-        display: flex;
-      }
-    }
-
-    /* ===============================
-       HERO SECTION
-    ================================ */
-    .hero {
-      width: 100%;
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      position: relative;
-      padding-top: 70px; /* Compensa o header fixo */
-      background: var(--gradient-1);
-    }
-
-    .hero-container {
-      max-width: 1000px;
-      margin: 0 auto;
-      text-align: center;
-      padding: 0 20px;
-      position: relative;
-      z-index: 2;
-    }
-
-    .hero h1 {
-      font-size: 3rem;
-      font-weight: 900;
-      margin-bottom: 1rem;
-      line-height: 1.2;
-    }
-
-    .hero h1 .highlight {
-      background: var(--gradient-2);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-
-    .hero p {
-      font-size: 1.2rem;
-      color: #f0f0f0;
-      max-width: 700px;
-      margin: 0.8rem auto 2rem;
-    }
-
-    .hero-cta {
-      display: inline-block;
-      background-color: #f72585;
+      background: #000;
       color: #fff;
-      padding: 14px 36px;
-      border-radius: 30px;
-      font-weight: 700;
-      font-size: 1rem;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      box-shadow: 0 4px 10px rgba(247,37,133,0.4);
-      position: relative;
-      overflow: hidden;
+      padding: 8px;
+      transition: top 0.3s ease;
+      z-index: 9999;
+    }
+    .skip-to-content:focus {
+      top: 0;
     }
 
-    .hero-cta:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 8px 20px rgba(247,37,133,0.6);
-    }
+    /* HEADER E NAVBAR */
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 999;
+  background-color: #fff; /* Fundo branco */
+  color: #000; /* Texto preto, caso queira */
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Sombra suave */
+}
 
-    /* ANIMAÇÃO BG HERO */
-    .hero::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(
-        circle at 20% 50%,
-        rgba(255, 255, 255, 0.15),
-        transparent 25%
-      ),
-      radial-gradient(
-        circle at 80% 30%,
-        rgba(255, 255, 255, 0.1),
-        transparent 25%
-      );
-      background-size: 200px 200px, 250px 250px;
-      animation: floatWave 5s infinite alternate;
-      opacity: 0.2;
-      z-index: 1;
-    }
+.nav-container {
+  max-width: var(--max-width);
+  height: 70px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+}
 
-    /* RATING E AVATARS */
-    .hero-rating {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 1.5rem;
-      margin-bottom: 2rem;
-    }
+.logo a {
+  font-size: 1.8rem;
+  font-weight: 900;
+  letter-spacing: 1px;
+  cursor: pointer;
+  /* Deixe o nome em preto ou utilize uma cor suave */
+  color: #000; 
+  text-decoration: none;
+}
 
-    .hero-avatars {
-      display: flex;
-    }
-    .hero-avatars img {
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
-      object-fit: cover;
-      margin-left: -15px;
-      border: 2px solid #fff;
-      transition: transform 0.3s ease;
-    }
-    .hero-avatars img:hover {
-      transform: scale(1.15);
-      z-index: 5;
-    }
+nav ul {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
 
-    .hero-stars {
-      text-align: left;
-    }
+nav a {
+  font-weight: 600;
+  position: relative;
+  padding: 10px 0;
+  color: #000; /* Mantém as opções do menu em preto */
+}
 
-    .stars {
-      color: #ffd700;
-      font-size: 1.2rem;
-    }
-    .rating-score {
-      display: block;
-      font-size: 0.9rem;
-    }
+/* Efeito de hover sublinhado no link */
+nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 2px;
+  background-color: #000;
+  transition: width 0.3s ease;
+  border-radius: 2px;
+}
 
-    /* ===============================
-       CURSO COMPLETO
-    ================================ */
-    .curso-completo {
-      padding: 80px 20px;
-      max-width: var(--max-width);
-      margin: 0 auto;
-      text-align: center;
-      background: var(--color-bg);
-      position: relative;
-    }
+nav a:hover::after,
+nav a:focus::after {
+  width: 100%;
+}
 
-    .curso-completo h2 {
-      font-size: 2rem;
-      font-weight: 900;
-      margin-bottom: 1rem;
-      text-transform: uppercase;
-      background: var(--gradient-2);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
+/* HAMBURGUER */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+}
 
-    .curso-completo p {
-      color: var(--color-text-muted);
-      max-width: 800px;
-      margin: 0.5rem auto 2rem;
-      line-height: 1.7;
-    }
+.hamburger span {
+  width: 25px;
+  height: 3px;
+  background: #000;
+  border-radius: 2px;
+}
 
-    .curso-beneficios {
-      margin-top: 2.5rem;
-    }
+/* MENU MOBILE */
+@media (max-width: 768px) {
+  nav ul {
+    display: none;
+    position: absolute;
+    top: 70px;
+    right: 20px;
+    flex-direction: column;
+    gap: 1rem;
+    background: #fff;
+    padding: 20px;
+    border-radius: var(--radius);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  }
+  .navbar.open ul {
+    display: flex;
+  }
+  .hamburger {
+    display: flex;
+  }
+}
 
-    .curso-beneficios h3 {
-      font-weight: 700;
-      margin-bottom: 1rem;
-      font-size: 1.5rem;
-      text-transform: uppercase;
-      color: #fff;
-    }
 
-    .curso-beneficios ul {
-      display: inline-block;
-      text-align: left;
-      margin-top: 1rem;
-    }
+   /* ===============================
+   HERO SECTION
+=============================== */
+.hero {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  padding-top: 70px; /* Compensa o header fixo */
 
-    .curso-beneficios li {
-      margin-bottom: 0.8rem;
-      display: flex;
-      align-items: center;
-      font-size: 1rem;
-      color: #fff;
-    }
+  /* EXEMPLO 1: Fundo com imagem + overlay */
+  background: 
+    /* Overlay semi-transparente para texto legível */
+    linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
+    /* Imagem de fundo (substitua o caminho) */
+    url("imgs/hero-bg.jpg") center/cover no-repeat; 
+  /* EXEMPLO 2 (opcional): Se preferir cor sólida minimalista:
+     background-color: #f8f8f8;
+  */
+  color: #fff; /* Ajuste para cor clara se usar imagem escura */
+}
 
-    .beneficio-icon {
-      color: #4cc9f0;
-      margin-right: 0.5rem;
-    }
+.hero-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 0 20px;
+  position: relative;
+  z-index: 2; /* Mantém conteúdo acima do overlay */
+}
 
-    /* MÓDULOS */
-    .curso-modulos {
-      margin-top: 4rem;
-    }
+.hero h1 {
+  font-size: 3rem;
+  font-weight: 900;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+  /* Ajuste de cor se necessário */
+  color: #fff; 
+}
 
-    .curso-modulos h3 {
-      font-weight: 700;
-      font-size: 1.4rem;
-      margin-bottom: 2rem;
-      text-transform: uppercase;
-      color: #fff;
-    }
+.hero h1 .highlight {
+  /* Se quiser manter o efeito gradiente na palavra destacada: */
+  background: var(--gradient-2);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
 
-    .modules-grid {
-      display: grid;
-      gap: 1.5rem;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    }
+.hero p {
+  font-size: 1.2rem;
+  color: #f0f0f0; 
+  max-width: 700px;
+  margin: 0.8rem auto 2rem;
+}
 
-    .module-card {
-      background: #1f1f23;
-      border-radius: var(--radius);
-      padding: 20px;
-      transition: transform var(--transition);
-      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-      min-height: 200px;
-      position: relative;
-    }
+/* Botão Call To Action */
+.hero-cta {
+  display: inline-block;
+  background-color: #f72585;
+  color: #fff;
+  padding: 14px 36px;
+  border-radius: 30px;
+  font-weight: 700;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 10px rgba(247,37,133,0.4);
+  position: relative;
+  overflow: hidden;
+}
 
-    .module-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 8px 16px rgba(0,0,0,0.3);
-    }
+.hero-cta:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(247,37,133,0.6);
+}
 
-    .module-card h4 {
-      font-size: 1.1rem;
-      margin-bottom: 1rem;
-      background: var(--gradient-2);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      font-weight: 700;
-    }
+/* ANIMAÇÃO BG HERO */
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
 
-    .module-card ul {
-      color: var(--color-text-muted);
-      font-size: 0.95rem;
-      line-height: 1.6;
-      padding-left: 1rem;
-    }
+  /* Radial Gradients mais sutis */
+  background: radial-gradient(
+      circle at 20% 50%,
+      rgba(255, 255, 255, 0.08),
+      transparent 25%
+    ),
+    radial-gradient(
+      circle at 80% 30%,
+      rgba(255, 255, 255, 0.05),
+      transparent 25%
+    );
+  background-size: 200px 200px, 250px 250px;
+  animation: floatWave 5s infinite alternate;
+  opacity: 0.2;
+  z-index: 1;
+}
 
-    /* ===============================
-       MÉTODO PE 900+
-    ================================ */
-    .metodo {
-      padding: 80px 20px;
-      background: var(--color-bg-secondary);
-      position: relative;
-    }
+/* RATING E AVATARS */
+.hero-rating {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
 
-    .metodo .container {
-      max-width: var(--max-width);
-      margin: 0 auto;
-      text-align: center;
-    }
+.hero-avatars {
+  display: flex;
+}
+.hero-avatars img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-left: -15px;
+  border: 2px solid #fff;
+  transition: transform 0.3s ease;
+}
+.hero-avatars img:hover {
+  transform: scale(1.15);
+  z-index: 5;
+}
 
-    .metodo h2 {
-      font-size: 2rem;
-      font-weight: 900;
-      margin-bottom: 1.5rem;
-      background: var(--gradient-1);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      text-transform: uppercase;
-    }
+.hero-stars {
+  text-align: left;
+}
 
-    .metodo p {
-      color: var(--color-text-muted);
-      max-width: 800px;
-      margin: 0.5rem auto 1.5rem;
-      line-height: 1.7;
-      text-align: left;
-    }
+.stars {
+  color: #ffd700;
+  font-size: 1.2rem;
+}
+.rating-score {
+  display: block;
+  font-size: 0.9rem;
+}
 
-    .steps-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 1.5rem;
-      margin-top: 2.5rem;
-    }
+/* -----------------------------------------------------------------------------
+  SEÇÃO: CURSO COMPLETO
+----------------------------------------------------------------------------- */
+.curso-completo {
+  padding: var(--spacing-section) var(--spacing-default);
+  background-color: var(--color-bg);
+  position: relative;
+}
 
-    .method-step {
-      background: #25252a;
-      border-radius: var(--radius);
-      padding: 20px;
-      text-align: center;
-      transition: transform var(--transition);
-    }
+/* Cabeçalho do Curso */
+.curso-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
 
-    .method-step:hover {
-      transform: translateY(-4px);
-    }
+.curso-header h2 {
+  font-size: 2rem;
+  text-transform: uppercase;
+  background: var(--color-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
 
-    .step-icon {
-      width: 50px;
-      height: 50px;
-      background: #f72585;
-      color: #fff;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: 0 auto 15px;
-      font-weight: 700;
-      font-size: 1.2rem;
-    }
+.curso-header p {
+  color: var(--color-text-muted);
+  max-width: 700px;
+  margin: 0.5rem auto 0;
+  line-height: 1.7;
+}
 
-    .method-step strong {
-      font-weight: 700;
-      font-size: 1rem;
-      margin-bottom: 0.5rem;
-      display: block;
-      color: #fff;
-    }
+/* Benefícios */
+.curso-beneficios {
+  margin-top: 3rem;
+}
 
-    .method-step p {
-      color: var(--color-text-muted);
-      font-size: 0.95rem;
-      line-height: 1.6;
-      text-align: left;
-    }
+.curso-beneficios h3 {
+  text-align: center;
+  font-weight: 700;
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+  text-transform: uppercase;
+  background: var(--color-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Grid de benefícios */
+.beneficios-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+}
+
+.beneficio-card {
+  background: #1f1f23;
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.beneficio-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+/* Ícone e texto dentro do card */
+.beneficio-icon {
+  color: var(--color-primary);
+  font-size: 1.3rem;
+  margin-right: 0.75rem;
+  flex-shrink: 0;
+}
+
+.beneficio-card p {
+  margin: 0;
+  color: #fff;
+}
+
+/* Módulos do Curso */
+.curso-modulos {
+  margin-top: 4rem;
+  text-align: center;
+}
+
+.curso-modulos h3 {
+  font-weight: 700;
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+  text-transform: uppercase;
+  background: var(--color-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Grid de módulos */
+.modules-grid {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+/* Cartão de cada módulo */
+.module-card {
+  background: #1f1f23;
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  min-height: 200px;
+}
+
+.module-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+}
+
+.module-card h4 {
+  font-size: 1.15rem;
+  margin-bottom: 1rem;
+  background: var(--color-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 700;
+}
+
+.module-card ul {
+  list-style-type: disc;
+  margin-left: 1.3rem;
+  color: var(--color-text-muted);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+/* CTA Final */
+.curso-cta {
+  text-align: center;
+  margin-top: 3rem;
+}
+
+.btn-inscricao {
+  display: inline-block;
+  background-color: var(--color-primary);
+  color: #000;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 14px 36px;
+  border-radius: 30px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 12px rgba(76, 201, 240, 0.3);
+  text-decoration: none;
+}
+
+.btn-inscricao:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 16px rgba(76, 201, 240, 0.5);
+}
+
+/* -----------------------------------------------------------------------------
+  RESPONSIVIDADE
+----------------------------------------------------------------------------- */
+
+/* Até 992px (por exemplo) */
+@media (max-width: 992px) {
+  .curso-header p {
+    margin: 0.75rem auto;
+  }
+  .beneficios-grid, .modules-grid {
+    grid-template-columns: 1fr;
+  }
+  .beneficio-card, .module-card {
+    text-align: left;
+  }
+}
+   /* ===============================
+   MÉTODO PE 900+ (ESTILO TIMELINE)
+=============================== */
+.metodo {
+  padding: 80px 20px;
+  background: var(--color-bg-secondary);
+  position: relative;
+}
+
+.metodo-container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  color: var(--color-text-muted);
+  /* Se quiser centralizar completamente o texto, altere aqui */
+  /* text-align: center; */
+}
+
+/* Cabeçalho da seção */
+.metodo-header {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center; /* Mantém o título centralizado */
+  margin-bottom: 3rem;
+}
+
+.metodo-header h2 {
+  font-size: 2rem;
+  font-weight: 900;
+  margin-bottom: 1.5rem;
+  background: var(--gradient-1);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-transform: uppercase;
+}
+
+.metodo-header p {
+  line-height: 1.7;
+  font-size: 1rem;
+}
+
+/* ===== TIMELINE ===== */
+.timeline {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  /* Linha vertical central (opcional) */
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Linha vertical - se quiser um "fio" no meio da timeline */
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 0;
+  width: 2px;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateX(-50%);
+  z-index: 0;
+}
+
+/* Item de Etapa */
+.step-item {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  position: relative;
+  gap: 1.5rem;
+  z-index: 1; /* Fica acima da linha vertical */
+}
+
+/* Alterna os lados (opcional) 
+   Caso queira alternar cada card para um lado, pode usar nth-child 
+*/
+.step-item:nth-child(even) {
+  flex-direction: row-reverse;
+  text-align: right;
+}
+
+/* Ícone do Passo (círculo) */
+.step-icon {
+  min-width: 50px;
+  min-height: 50px;
+  background: #f72585;
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1.2rem;
+  box-shadow: 0 4px 12px rgba(247,37,133,0.3);
+  position: relative;
+  z-index: 2;
+}
+
+/* Conteúdo de cada etapa */
+.step-content {
+  background: #25252a;
+  padding: 1.5rem;
+  border-radius: var(--radius);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  max-width: 500px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+}
+
+.step-content h3 {
+  color: #fff;
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.step-content p {
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+/* Hover no bloco de conteúdo */
+.step-content:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+}
+
+/* Ajuste para telas menores */
+@media (max-width: 768px) {
+  .timeline::before {
+    left: 20px; /* Move a linha para a esquerda */
+    transform: none;
+  }
+  .step-item {
+    flex-direction: row !important; /* Todos os cards do mesmo lado */
+  }
+  .step-item:nth-child(even) {
+    flex-direction: row !important;
+  }
+  .step-icon {
+    /* Deixa o ícone mais próximo do card no mobile */
+    position: relative;
+    left: 0;
+    margin-right: 1rem;
+  }
+}
+
 
     /* ===============================
        PROFESSORA CRIS
@@ -589,68 +773,43 @@
       font-weight: 700;
     }
 
-    /* ===============================
-       PREÇO (NO FINAL)
-    ================================ */
-    .preco-curso {
-      padding: 80px 20px;
-      max-width: 800px;
-      margin: 0 auto;
-      text-align: center;
-      background: var(--color-bg-secondary);
-      border-radius: var(--radius);
-      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-      margin-top: 3rem;
-    }
-
-    .preco-curso h3 {
-      font-size: 1.8rem;
-      font-weight: 900;
-      background: var(--gradient-1);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      margin-bottom: 1rem;
-      text-transform: uppercase;
-    }
-
-    .preco-curso .preco {
-      font-size: 2.2rem;
-      font-weight: 900;
-      color: #ffd700;
-      margin-bottom: 0.5rem;
-    }
-
-    .preco-curso .parcelamento {
-      color: var(--color-text-muted);
-      margin-bottom: 2rem;
-    }
-
-    .cta-preco {
-      background: #f72585;
-      color: #fff;
-      font-weight: 700;
-      text-transform: uppercase;
-      padding: 12px 36px;
-      border-radius: 30px;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      box-shadow: 0 4px 10px rgba(247,37,133,0.4);
-    }
-    .cta-preco:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 8px 20px rgba(247,37,133,0.6);
-    }
-
-    /* ===============================
-       EBOOKS
-    ================================ */
     .ebooks {
       padding: 80px 20px;
-      background: #16161a;
       position: relative;
+      /* Fundo com gradiente animado */
+      background: linear-gradient(135deg, #1b1b1f 0%, #111113 50%, #1b1b1f 100%);
+      background-size: 400% 400%;
+      animation: gradient-bg 15s ease infinite;
+      overflow: hidden;
+    }
+
+    /* Animação do gradiente de fundo */
+    @keyframes gradient-bg {
+      0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+
+    .ebooks::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle at 50% 50%, rgba(255,255,255,0.1), transparent 60%);
+      opacity: 0.15;
+      pointer-events: none;
     }
 
     .ebooks h2 {
-      font-size: 1.8rem;
+      font-size: 2rem;
       font-weight: 900;
       margin-bottom: 1.5rem;
       text-align: center;
@@ -658,14 +817,27 @@
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+
+    .ebooks .tagline {
+      text-align: center;
+      font-size: 1rem;
+      margin-top: -10px;
+      color: #ffe600;
+      font-weight: 700;
+      text-transform: uppercase;
+      margin-bottom: 2rem;
+      /* Pode colocar algo como "Desconto por tempo limitado" */
     }
 
     .ebooks p {
       color: var(--color-text-muted);
       max-width: 700px;
-      margin: 0.5rem auto 2rem auto;
+      margin: 0 auto 2rem auto;
       text-align: center;
       line-height: 1.7;
+      font-size: 1rem;
     }
 
     .ebook-grid {
@@ -679,20 +851,37 @@
     .ebook-card {
       background: #2c2c35;
       border-radius: var(--radius);
-      padding: 20px;
-      width: 260px;
+      padding: 24px 20px 32px 20px;
+      width: 280px;
       text-align: center;
-      transition: transform 0.3s ease;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
       position: relative;
+      overflow: hidden;
+    }
+
+    /* Exemplo de “badge” para destaque */
+    .ebook-card .badge {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      background: #ff006e;
+      color: #fff;
+      padding: 6px 10px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      border-radius: 4px;
+      box-shadow: 0 2px 6px rgba(255,0,110,0.4);
+      text-transform: uppercase;
     }
 
     .ebook-card:hover {
-      transform: translateY(-4px);
+      transform: translateY(-6px);
+      box-shadow: 0 12px 24px rgba(0,0,0,0.4);
     }
 
     .ebook-card img {
-      max-width: 60px;
+      max-width: 80px;
       margin-bottom: 1rem;
       transition: transform 0.4s ease;
     }
@@ -703,7 +892,7 @@
 
     .ebook-card h3 {
       font-weight: 700;
-      font-size: 1rem;
+      font-size: 1.1rem;
       margin-bottom: 0.5rem;
       background: var(--gradient-2);
       -webkit-background-clip: text;
@@ -713,24 +902,33 @@
     .ebook-card p {
       color: var(--color-text-muted);
       font-size: 0.95rem;
-      margin-bottom: 1rem;
+      margin-bottom: 1.5rem;
+      min-height: 56px; /* Para manter a altura se os textos tiverem tamanhos diferentes */
     }
 
     .ebook-buy-btn {
       background: #4cc9f0;
       color: #000;
       font-weight: 700;
-      font-size: 0.9rem;
-      padding: 10px 24px;
+      font-size: 1rem;
+      padding: 12px 28px;
       border-radius: 30px;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
       box-shadow: 0 4px 12px rgba(76,201,240,0.4);
       text-transform: uppercase;
       cursor: pointer;
+      border: none;
     }
     .ebook-buy-btn:hover {
       transform: translateY(-3px);
       box-shadow: 0 8px 20px rgba(76,201,240,0.6);
+    }
+
+    /* Responsividade */
+    @media (max-width: 480px) {
+      .ebook-card {
+        width: 100%;
+      }
     }
 
     /* ===============================
@@ -773,14 +971,15 @@
 </head>
 
 <body>
+  <!-- Link de pular para o conteúdo (acessibilidade) -->
+  <a href="#main" class="skip-to-content">Pular para o conteúdo principal</a>
 
-  <!-- HEADER -->
   <header>
     <div class="nav-container">
       <div class="logo">
         <a href="#hero">Prof. Cris</a>
       </div>
-      <nav class="navbar">
+      <nav class="navbar" aria-label="Menu Principal">
         <ul>
           <li><a href="#hero">Início</a></li>
           <li><a href="#curso">Curso</a></li>
@@ -790,57 +989,82 @@
           <li><a href="#preco">Investimento</a></li>
         </ul>
       </nav>
-      <div class="hamburger">
+      <div class="hamburger" aria-label="Abrir Menu" role="button" tabindex="0">
         <span></span><span></span><span></span>
       </div>
     </div>
   </header>
+  
 
-  <!-- HERO -->
-  <section class="hero" id="hero">
-    <div class="hero-container">
-      <h1>
-        Alcance <span class="highlight">900+</span> na Redação do ENEM
-      </h1>
-      <p>Descubra o método que já ajudou centenas de alunos a conquistarem notas acima de 900 em redação.</p>
+  <!-- CONTEÚDO PRINCIPAL -->
+  <main id="main">
+    <!-- HERO -->
+    <section class="hero" id="hero">
+      <div class="hero-container">
+        <h1>
+          Alcance <span class="highlight">900+</span> na Redação do ENEM
+        </h1>
+        <p>Descubra o método que já ajudou centenas de alunos a conquistarem notas acima de 900 em redação.</p>
 
-      <div class="hero-rating">
-        <div class="hero-avatars">
-          <img src="imgs/cases/case-5.jpg" alt="Aluno 1" />
-          <img src="imgs/cases/case1.jpg" alt="Aluno 2" />
-          <img src="imgs/cases/case2.jpg" alt="Aluno 3" />
-          <img src="imgs/cases/case3.png" alt="Aluno 4" />
+        <div class="hero-rating">
+          <div class="hero-avatars">
+            <img src="imgs/cases/case-5.jpg" alt="Ex-aluna que obteve alta pontuação" loading="lazy" />
+            <img src="imgs/cases/case1.jpg" alt="Ex-aluno com resultado excelente" loading="lazy" />
+            <img src="imgs/cases/case2.jpg" alt="Aluno satisfeito com o método" loading="lazy" />
+            <img src="imgs/cases/case3.png" alt="Estudante que conseguiu 900+ pontos" loading="lazy" />
+          </div>
+          <div class="hero-stars">
+            <span class="stars" aria-label="5 estrelas">★★★★★</span>
+            <span class="rating-score">4.9 de 5 (397)</span>
+          </div>
         </div>
-        <div class="hero-stars">
-          <span class="stars" aria-label="5 estrelas">★★★★★</span>
-          <span class="rating-score">4.9 de 5 (397)</span>
-        </div>
+
+        <a href="#metodo" class="hero-cta">Conhecer o Método</a>
       </div>
+    </section>
 
-      <a href="#metodo" class="hero-cta">Conhecer o Método</a>
+    <!-- CURSO COMPLETO -->
+<section class="curso-completo" id="curso">
+  <div class="curso-container">
+    
+    <!-- Cabeçalho e Introdução -->
+    <div class="curso-header">
+      <h2>Curso Completo de Redação</h2>
+      <p>
+        Mais do que aprender a escrever, você vai dominar técnicas que permitem compreender o tema, 
+        desenvolver argumentos sólidos e propor soluções. Transforme sua escrita e fique pronto 
+        para superar a barreira dos 900 pontos.
+      </p>
     </div>
-  </section>
 
-  <!-- CURSO COMPLETO -->
-  <section class="curso-completo" id="curso">
-    <h2>Curso Completo de Redação</h2>
-    <p>
-      Mais do que aprender a escrever, você vai dominar técnicas que permitem compreender o tema, 
-      desenvolver argumentos sólidos e propor soluções. Transforme sua escrita e fique pronto 
-      para superar a barreira dos 900 pontos.
-    </p>
-
+    <!-- Benefícios em Cards -->
     <div class="curso-beneficios">
       <h3>Por que escolher o Curso PE 900+?</h3>
-      <ul>
-        <li><span class="beneficio-icon">✔️</span>Método validado por resultados reais</li>
-        <li><span class="beneficio-icon">✔️</span>Aulas 100% online e flexíveis</li>
-        <li><span class="beneficio-icon">✔️</span>Suporte personalizado com a Professora Cris</li>
-        <li><span class="beneficio-icon">✔️</span>Material exclusivo e atualizações contínuas</li>
-        <li><span class="beneficio-icon">✔️</span>Garantia de satisfação ou seu dinheiro de volta</li>
-      </ul>
+      <div class="beneficios-grid">
+        <article class="beneficio-card">
+          <span class="beneficio-icon">✔️</span>
+          <p>Método validado por resultados reais</p>
+        </article>
+        <article class="beneficio-card">
+          <span class="beneficio-icon">✔️</span>
+          <p>Aulas 100% online e flexíveis</p>
+        </article>
+        <article class="beneficio-card">
+          <span class="beneficio-icon">✔️</span>
+          <p>Suporte personalizado com a Professora Cris</p>
+        </article>
+        <article class="beneficio-card">
+          <span class="beneficio-icon">✔️</span>
+          <p>Material exclusivo e atualizações contínuas</p>
+        </article>
+        <article class="beneficio-card">
+          <span class="beneficio-icon">✔️</span>
+          <p>Garantia de satisfação ou seu dinheiro de volta</p>
+        </article>
+      </div>
     </div>
 
+    <!-- Lista de Módulos -->
     <div class="curso-modulos">
       <h3>Conteúdo que você irá aprender</h3>
       <div class="modules-grid">
@@ -878,108 +1102,140 @@
         </article>
       </div>
     </div>
-  </section>
 
-  <!-- MÉTODO PE 900+ -->
-  <section class="metodo" id="metodo">
-    <div class="container">
+    <!-- CTA final do Curso (opcional) -->
+    <div class="curso-cta">
+      <a href="#preco" class="btn-inscricao">Quero me Inscrever Agora</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- MÉTODO PE 900+ -->
+<section class="metodo" id="metodo">
+  <div class="metodo-container">
+    
+    <!-- Cabeçalho do Método -->
+    <div class="metodo-header">
       <h2>Método PE 900+</h2>
       <p>
         O <strong>Método PE 900+</strong> é uma abordagem estratégica e objetiva para que você 
         desenvolva a redação de maneira eficiente. Com base em planejamento, estrutura e repertório, 
         o método garante que cada parágrafo cumpra sua função, levando à máxima pontuação.
       </p>
-
-
-      <div class="steps-grid">
-        <article class="method-step">
-          <div class="step-icon">1</div>
-          <strong>Planejamento Antecipado</strong>
+    </div>
+    
+    <!-- Etapas em Formato Timeline -->
+    <div class="timeline">
+      <article class="step-item">
+        <div class="step-icon">1</div>
+        <div class="step-content">
+          <h3>Planejamento Antecipado</h3>
           <p>Organize suas ideias e defina o tema central de forma estratégica.</p>
-        </article>
-        <article class="method-step">
-          <div class="step-icon">2</div>
-          <strong>Estrutura Sólida</strong>
+        </div>
+      </article>
+      <article class="step-item">
+        <div class="step-icon">2</div>
+        <div class="step-content">
+          <h3>Estrutura Sólida</h3>
           <p>Divida suas ideias em parágrafos bem delineados e coerentes.</p>
-        </article>
-        <article class="method-step">
-          <div class="step-icon">3</div>
-          <strong>Repertório Rico</strong>
+        </div>
+      </article>
+      <article class="step-item">
+        <div class="step-icon">3</div>
+        <div class="step-content">
+          <h3>Repertório Rico</h3>
           <p>Use argumentos, fatos e exemplos que demonstrem conhecimento de mundo.</p>
-        </article>
-        <article class="method-step">
-          <div class="step-icon">4</div>
-          <strong>Conclusão Eficiente</strong>
+        </div>
+      </article>
+      <article class="step-item">
+        <div class="step-icon">4</div>
+        <div class="step-content">
+          <h3>Conclusão Eficiente</h3>
           <p>Apresente soluções que resolvam a problemática com originalidade.</p>
-        </article>
-        <article class="method-step">
-          <div class="step-icon">5</div>
-          <strong>Tempo e Revisão</strong>
+        </div>
+      </article>
+      <article class="step-item">
+        <div class="step-icon">5</div>
+        <div class="step-content">
+          <h3>Tempo e Revisão</h3>
           <p>Estratégias para produzir e revisar o texto dentro do tempo de prova.</p>
-        </article>
+        </div>
+      </article>
+    </div>
+
+  </div>
+</section>
+
+
+    <!-- PROFESSORA CRIS -->
+    <section class="prof-cris" id="prof-cris">
+      <h2>Professora Cris</h2>
+      <div class="image-card">
+        <img src="imgs/profe.png" alt="Foto da Professora Cris" loading="lazy" />
       </div>
-    </div>
-  </section>
+      <p><strong>Quem sou eu?</strong></p>
+      <p>
+        Sou a Professora Cris, e há 15 anos ajudo estudantes a desbloquear seu potencial de escrita. 
+        Já corrigi milhares de redações, conhecendo exatamente o que faz um texto conquistar 900+ pontos.
+      </p>
+      <p>
+        Minha experiência como corretora e professora me permite oferecer estratégias personalizadas, 
+        focadas em cada detalhe que a banca examinadora avalia. Vamos juntos elevar seu nível de escrita!
+      </p>
 
-  <!-- PROFESSORA CRIS -->
-  <section class="prof-cris" id="prof-cris">
-    <h2>Professora Cris</h2>
-    <div class="image-card">
-      <img src="imgs/profe.png" alt="Foto da Professora Cris" />
-    </div>
-    <p><strong>Quem sou eu?</strong></p>
-    <p>
-      Sou a Professora Cris, e há 15 anos ajudo estudantes a desbloquear seu potencial de escrita. 
-      Já corrigi milhares de redações, conhecendo exatamente o que faz um texto conquistar 900+ pontos.
-    </p>
-    <p>
-      Minha experiência como corretora e professora me permite oferecer estratégias personalizadas, 
-      focadas em cada detalhe que a banca examinadora avalia. Vamos juntos elevar seu nível de escrita!
-    </p>
+      <a href="#preco" class="prof-cris-cta">Quero Garantir Minha Vaga</a>
+    </section>
 
-    <a href="#preco" class="prof-cris-cta">Quero Garantir Minha Vaga</a>
-  </section>
+    <!-- TESTEMUNHOS -->
+    <section class="testemunhos">
+      <h3>Depoimentos de Quem Já Passou Por Aqui</h3>
+      <p>
+        "O Método PE 900+ foi um divisor de águas. Saí de 700 para 920 na redação! 
+        A organização e estratégias fizeram toda a diferença."
+        <span class="autor">- João Silva</span>
+      </p>
+      <p>
+        "A Prof. Cris me ensinou a argumentar de forma clara e profunda. 
+        Consegui os 960 pontos e fui aprovada na universidade dos meus sonhos!"
+        <span class="autor">- Maria Fernanda</span>
+      </p>
+    </section>
 
-  <!-- TESTEMUNHOS -->
-  <section class="testemunhos">
-    <h3>Depoimentos de Quem Já Passou Por Aqui</h3>
-    <p>
-      "O Método PE 900+ foi um divisor de águas. Saí de 700 para 920 na redação! 
-      A organização e estratégias fizeram toda a diferença."
-      <span class="autor">- João Silva</span>
-    </p>
-    <p>
-      "A Prof. Cris me ensinou a argumentar de forma clara e profunda. 
-      Consegui os 960 pontos e fui aprovada na universidade dos meus sonhos!"
-      <span class="autor">- Maria Fernanda</span>
-    </p>
-  </section>
-
-  <!-- EBOOKS -->
-  <section class="ebooks" id="ebooks">
-    <h2>Ebooks Exclusivos</h2>
-    <p>Aprimore ainda mais seus estudos com materiais complementares.</p>
-    <div class="ebook-grid">
-      <article class="ebook-card">
-        <img src="imgs/ebook1.jpg" alt="Capa Ebook 1" />
-        <h3>Estratégias de Estudo</h3>
-        <p>Aprenda a planejar seu tempo e organizar seus estudos de forma inteligente.</p>
-        <button class="ebook-buy-btn">Quero Este Ebook</button>
-      </article>
-      <article class="ebook-card">
-        <img src="imgs/ebook2.jpg" alt="Capa Ebook 2" />
-        <h3>Memorização Avançada</h3>
-        <p>Técnicas de memorização para fixar conteúdos e garantir alto desempenho.</p>
-        <button class="ebook-buy-btn">Quero Este Ebook</button>
-      </article>
-      <article class="ebook-card">
-        <img src="imgs/ebook.png" alt="Capa Ebook 3" />
-        <h3>Foco & Produtividade</h3>
-        <p>Descubra como ter concentração máxima e alcançar suas metas diárias.</p>
-        <button class="ebook-buy-btn">Quero Este Ebook</button>
-      </article>
-    </div>
-  </section>
+    <section class="ebooks" id="ebooks">
+      <h2>Ebooks Exclusivos</h2>
+      <div class="tagline">Desconto por tempo limitado!</div>
+      <p>Aprimore ainda mais seus estudos com materiais complementares. Aproveite nossa oferta especial!</p>
+      <div class="ebook-grid">
+        
+        <article class="ebook-card">
+          <!-- Exemplo de badge de destaque -->
+          <div class="badge">Novo</div>
+          <img src="imgs/ebook1.jpg" alt="Capa do Ebook Estratégias de Estudo" loading="lazy" />
+          <h3>Estratégias de Estudo</h3>
+          <p>Aprenda a planejar seu tempo e organizar seus estudos de forma inteligente.</p>
+          <button class="ebook-buy-btn">Quero Este Ebook</button>
+        </article>
+        
+        <article class="ebook-card">
+          <!-- Você pode trocar por “Mais Vendido” ou “Promoção” -->
+          <div class="badge">Novo</div>
+          <img src="imgs/ebook2.jpg" alt="Capa do Ebook Memorização Avançada" loading="lazy" />
+          <h3>Memorização Avançada</h3>
+          <p>Técnicas de memorização para fixar conteúdos e garantir alto desempenho.</p>
+          <button class="ebook-buy-btn">Quero Este Ebook</button>
+        </article>
+        
+        <article class="ebook-card">
+          <img src="imgs/ebook.png" alt="Capa do Ebook Foco & Produtividade" loading="lazy" />
+          <h3>Foco & Produtividade</h3>
+          <p>Descubra como ter concentração máxima e alcançar suas metas diárias.</p>
+          <button class="ebook-buy-btn">Quero Este Ebook</button>
+        </article>
+  
+      </div>
+    </section>
+  </main>
 
   <!-- FOOTER -->
   <footer>
@@ -1010,6 +1266,5 @@
       });
     });
   </script>
-
 </body>
 </html>
