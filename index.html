@@ -15,6 +15,7 @@
   <meta property="og:image" content="imgs/social-share.jpg" />
   <meta property="og:url" content="https://seudominio.com" />
   <meta property="og:type" content="website" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-pV7oYw6Ih2h0UGM71uFAJoOx3qwSdz7oAlD6H/k9KEmjnmGBPSdqIl2KacOVGQH+tpE1EQvvqz6ctI0BJ5LUqw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
   <!-- FONTS -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -988,7 +989,94 @@
     font-size: 0.7rem;
   }
 }
+ /* Estilos Gerais da Seção */
+ #mural-de-notas {
+    background-color: #f4f4f4;
+    padding: 60px 20px;
+  }
 
+  /* Container Centralizado */
+  #mural-de-notas .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  /* Título da Seção */
+  #mural-de-notas h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #333;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+
+  /* Descrição da Seção */
+  #mural-de-notas p {
+    color: #666;
+    margin-bottom: 40px;
+    font-size: 1.1rem;
+    line-height: 1.6;
+  }
+
+  /* Container dos Cards */
+  .cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+  }
+
+  /* Estilos dos Cards */
+  .card {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+    width: 280px;
+    text-align: center;
+    padding: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  /* Efeito de Hover nos Cards */
+  .card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+  }
+
+  /* Imagens dos Cards */
+  .card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 15px;
+  }
+
+  /* Título dos Alunos */
+  .card h3 {
+    margin: 10px 0;
+    color: #333;
+    font-size: 1.5rem;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+
+  /* Nota dos Alunos */
+  .card p {
+    color: #555;
+    font-size: 1.1rem;
+  }
+
+  /* Responsividade para Telas Menores */
+  @media (max-width: 768px) {
+    .cards {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .card {
+      width: 90%;
+    }
+  }
     /***********************************************
      * SEÇÃO: MÓDULOS DO CURSO
      ***********************************************/
@@ -1364,24 +1452,93 @@
       }
     }
 
-    /***********************************************
-     * FOOTER
-     ***********************************************/
-    footer {
-      background: #1c1c1f;
-      text-align: center;
-      color: #999;
-      font-size: 0.9rem;
-      padding: 20px;
-      margin-top: 3rem;
-      border-top: 1px solid rgba(255, 255, 255, 0.1);
-    }
+  
+        /***********************************************
+        * 10. FOOTER
+        ***********************************************/
+        .footer {
+        padding: 50px 20px;
+        text-align: center;
+        background: #2c3e50;
+        color: #bdc3c7;
+        position: relative;
+        }
 
-    footer a {
-      color: var(--color-primary);
-      font-weight: 600;
-      text-transform: uppercase;
-    }
+        .footer p {
+        margin: 10px 0;
+        font-size: 0.9rem;
+        }
+
+        .footer a {
+        color: #bdc3c7;
+        transition: color 0.3s;
+        }
+
+        .footer a:hover {
+        color: var(--color-primary);
+        }
+
+        .footer::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100px;
+        height: 5px;
+        background: var(--color-primary);
+        border-radius: 2px;
+        }
+
+        .social-icons a {
+        color: #bdc3c7;
+        margin: 0 10px;
+        font-size: 1.2rem;
+        transition: color 0.3s;
+        }
+
+        .social-icons a:hover {
+        color: var(--color-primary);
+        }
+
+        .developed-by {
+        text-align: center;
+        margin-top: 20px;
+        font-size: 0.9rem;
+        color: #aaa;
+        }
+
+        .developed-by a {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+        color: inherit;
+        }
+
+        .developed-by a span {
+        margin-right: 5px;
+        }
+
+        .developed-by img {
+        height: 30px;
+        transition: transform 0.3s ease;
+        }
+
+        .developed-by a:hover img {
+        transform: scale(1.1);
+        }
+
+        @media (max-width: 576px) {
+        .developed-by img {
+        height: 25px;
+        }
+
+        .developed-by {
+        font-size: 0.8rem;
+        }
+        }
+
 
   </style>
 </head>
@@ -1436,10 +1593,11 @@
         <!-- Avaliações / Rating -->
         <div class="hero-rating">
           <div class="hero-avatars">
-            <img src="imgs/cases/case-5.jpg" alt="Ex-aluna que obteve alta pontuação" loading="lazy" />
-            <img src="imgs/cases/case1.jpg" alt="Ex-aluno com resultado excelente" loading="lazy" />
-            <img src="imgs/cases/case2.jpg" alt="Aluno satisfeito com o método" loading="lazy" />
-            <img src="imgs/cases/case3.png" alt="Estudante que conseguiu 900+ pontos" loading="lazy" />
+            <img src="imgs/aluno-1.png" alt="Ex-aluna que obteve alta pontuação" loading="lazy" />
+            <img src="imgs/aluno-2.png" alt="Ex-aluno com resultado excelente" loading="lazy" />
+            <img src="imgs/aluno-3.png" alt="Aluno satisfeito com o método" loading="lazy" />
+            <img src="imgs/aluno-4.png" alt="Estudante que conseguiu 900+ pontos" loading="lazy" />
+            <img src="imgs/aluno-5.png" alt="Estudante que conseguiu 900+ pontos" loading="lazy" />
           </div>
           <div class="hero-stars">
             <span class="stars" aria-label="5 estrelas">★★★★★</span>
@@ -1501,7 +1659,7 @@
           vamos juntos nessa jornada rumo à sua aprovação!
         </p>
         <!-- CTA Adicionado -->
-        <a href="#contato" class="cta-button">Entre em Contato</a>
+        <a href="https://wa.me/5192612205" target="_blank" class="cta-button">Entre em Contato</a>
       </div>
     </div>
   </div>
@@ -1725,48 +1883,108 @@
           </article>
         </div>
         <div style="text-align: center; margin-top: 2rem;">
-          <a href="#mentoria" class="btn">Quero Garantir Minha Vaga</a>
+          <a href="mentoria.html" class="btn">Quero Garantir Minha Vaga</a>
         </div>
       </div>
     </section>
 
-    <!-- SEÇÃO: EBOOKS -->
-    <section class="ebooks reveal" id="ebooks">
-      <h2>Ebooks Exclusivos</h2>
-      <div class="tagline">Desconto por tempo limitado!</div>
-      <p>Aprimore ainda mais seus estudos com materiais complementares. Aproveite nossa oferta especial!</p>
-      <div class="ebook-grid">
-        <article class="ebook-card">
-          <div class="badge">Novo</div>
-          <img src="imgs/ebook1.jpg" alt="Capa do Ebook Estratégias de Estudo" loading="lazy" />
-          <h3>Gramática Essencial: Guia Prático para Redação ENEM, Vestibular e Concurso</h3>
-          <p>Domine os principais tópicos de gramática e melhore significativamente suas redações. Este guia prático
-            aborda de forma clara e objetiva as regras essenciais para alcançar excelência em provas e concursos.</p>
-          <button class="ebook-buy-btn">Quero Este Ebook</button>
-        </article>
-        <article class="ebook-card">
-          <div class="badge">Novo</div>
-          <img src="imgs/ebook2.jpg" alt="Capa do Ebook Memorização Avançada" loading="lazy" />
-          <h3>10 Passos para uma Redação de Excelência</h3>
-          <p>Descubra um plano estruturado para conquistar notas acima de 900 na redação do ENEM. Com dicas práticas e
-            técnicas testadas, este guia vai transformar sua escrita e te preparar para se destacar.</p>
-          <button class="ebook-buy-btn">Quero Este Ebook</button>
-        </article>
-        <article class="ebook-card">
-          <img src="imgs/ebook.png" alt="Capa do Ebook Foco & Produtividade" loading="lazy" />
-          <h3>Desvendando a Redação do ENEM com o Método PE 900+</h3>
-          <p>Aprenda passo a passo a construir uma redação de alta pontuação com o exclusivo Método PE 900+. Dicas
-            práticas e técnicas desenvolvidas para te ajudar a alcançar o topo da avaliação.</p>
-          <button class="ebook-buy-btn">Quero Este Ebook</button>
-        </article>
+<!-- SEÇÃO: EBOOKS -->
+<section class="ebooks reveal" id="ebooks">
+  <h2>Ebooks Exclusivos</h2>
+  <div class="tagline">Desconto por tempo limitado!</div>
+  <p>Aprimore ainda mais seus estudos com materiais complementares. Aproveite nossa oferta especial!</p>
+  <div class="ebook-grid">
+    <article class="ebook-card">
+      <div class="badge">Novo</div>
+      <img src="imgs/ebook1.jpg" alt="Capa do Ebook Estratégias de Estudo" loading="lazy" />
+      <h3>Gramática Essencial: Guia Prático para Redação ENEM, Vestibular e Concurso</h3>
+      <p>Domine os principais tópicos de gramática e melhore significativamente suas redações. Este guia prático
+        aborda de forma clara e objetiva as regras essenciais para alcançar excelência em provas e concursos.</p>
+      <a target="_blank" href="https://profcristinafracasso.hotmart.host/gramatica-essencial-seu-guia-pratico-para-redacao-enem-vestibular-e-concursos-6eed4697-a7a4-4ab6-91b0-34822e87e5c1" class="ebook-buy-btn">Quero Este Ebook</a>
+    </article>
+    <article class="ebook-card">
+      <div class="badge">Novo</div>
+      <img src="imgs/ebook2.jpg" alt="Capa do Ebook Memorização Avançada" loading="lazy" />
+      <h3>10 Passos para uma Redação de Excelência</h3>
+      <p>Descubra um plano estruturado para conquistar notas acima de 900 na redação do ENEM. Com dicas práticas e
+        técnicas testadas, este guia vai transformar sua escrita e te preparar para se destacar.</p>
+      <!-- Link corrigido para o ebook correto -->
+      <a target="_blank" href="https://profcristinafracasso.hotmart.host/10-passos-para-uma-redacao-de-excelencia-URL-CORRETA" rel="" class="ebook-buy-btn">Quero Este Ebook</a>
+    </article>
+    <article class="ebook-card">
+      <img src="imgs/ebook.png" alt="Capa do Ebook Foco & Produtividade" loading="lazy" />
+      <h3>Desvendando a Redação do ENEM com o Método PE 900+</h3>
+      <p>Aprenda passo a passo a construir uma redação de alta pontuação com o exclusivo Método PE 900+. Dicas
+        práticas e técnicas desenvolvidas para te ajudar a alcançar o topo da avaliação.</p>
+      <!-- Substituir o botão por um link com o href correto -->
+      <a target="_blank" href="https://profcristinafracasso.hotmart.host/desvendando-a-redacao-do-enem-com-o-metodo-pe-900-plus-URL-CORRETA" class="ebook-buy-btn">Quero Este Ebook</a>
+    </article>
+  </div>
+</section>
+
+<section id="mural-de-notas">
+  <div class="container">
+    <h2>Mural de Notas</h2>
+    <p>Parabenizamos nossos alunos pelos excelentes resultados na redação do ENEM!</p>
+
+    <div class="cards">
+      <!-- Card 1 -->
+      <div class="card">
+        <img src="/path/to/4cad4ab2-a49a-4b47-9239-6c1cff633d5a.jpg" alt="Nota de Thiago Barbosa">
+        <h3>Thiago Barbosa</h3>
+        <p>Nota: <strong>980</strong></p>
       </div>
-    </section>
+
+      <!-- Card 2 -->
+      <div class="card">
+        <img src="/path/to/e438e177-02cf-4322-83c0-525b30deeba0.jpg" alt="Nota de Laura Delatorre">
+        <h3>Laura Delatorre</h3>
+        <p>Nota: <strong>940</strong></p>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="card">
+        <img src="imgs/mural2.png" alt="Nota de Bárbara Pécora">
+        <h3>Bárbara Pécora</h3>
+        <p>Nota: <strong>920</strong></p>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="card">
+        <img src="imgs/mural1.png" alt="Nota de Geórgia Teixeira">
+        <h3>Geórgia Teixeira</h3>
+        <p>Nota: <strong>900</strong></p>
+      </div>
+    </div>
+  </div>
+</section>
+
 
   </main>
 
-  <!-- FOOTER -->
-  <footer>
-    <p>© 2025 Prof. Cris - Todos os direitos reservados | <a href="#hero">Voltar ao topo</a></p>
+  <footer class="footer" id="footer">
+    <p>&copy; 2025 Prof. Cris - Todos os direitos reservados.</p>
+    <p>
+      <a href="#politica-cookies">Política de Cookies</a> |
+      <a href="#politica-privacidade">Política de Privacidade</a>
+    </p>
+    <div class="social-icons mt-3">
+      <a target="_blank" href="https://www.facebook.com/professoracris_redacaoenem" aria-label="Facebook" rel="noopener noreferrer">
+        <i class="fab fa-facebook-f"></i>
+      </a>
+      <a target="_blank" href="https://www.instagram.com/professoracris_redacaoenem/" aria-label="Instagram" rel="noopener noreferrer">
+        <i class="fab fa-instagram"></i>
+      </a>
+    </div>
+    <div class="developed-by mt-4">
+      <p>
+        <a href="https://innovaxhouse.com.br" target="_blank" rel="noopener noreferrer"
+          aria-label="Visite o site do desenvolvedor">
+          <span>Desenvolvido com <i class="fas fa-heart" style="color: rgb(31, 255, 31);"></i> por</span>
+          <img src="imgs/innovax.png" alt="Logo da Innovax House" loading="lazy" />
+        </a>
+      </p>
+    </div>
   </footer>
 
   <script>
@@ -1854,49 +2072,6 @@
 
     const timerInterval = setInterval(updateCountdown, 1000);
     updateCountdown(); // Chamada inicial para exibir o tempo imediatamente
-
-    // CONTADOR DE VAGAS RESTANTES (Opcional)
-    // Se desejar implementar um contador de vagas restantes, você pode adicionar um elemento com id="vagas-restantes"
-    // e ajustar o script abaixo conforme necessário.
-
-    /*
-    const vagasRestantesElement = document.getElementById('vagas-restantes');
-    let vagasRestantes = parseInt(vagasRestantesElement.textContent);
-
-    const buttons = document.querySelectorAll('.price-cta, .ebook-buy-btn');
-    buttons.forEach(button => {
-      button.addEventListener('click', () => {
-        if (vagasRestantes > 0) {
-          vagasRestantes--;
-          vagasRestantesElement.textContent = vagasRestantes;
-
-          // Notificação de sucesso
-          alert('Sua inscrição foi realizada com sucesso!');
-
-          // Caso todas as vagas sejam preenchidas
-          if (vagasRestantes === 0) {
-            document.querySelector('.promo-banner').innerHTML = "<p>🎉 Todas as vagas foram preenchidas!</p>";
-            buttons.forEach(btn => {
-              btn.disabled = true;
-              btn.style.pointerEvents = 'none';
-              btn.style.opacity = '0.6';
-            });
-          }
-        } else {
-          alert('Desculpe, todas as vagas foram preenchidas.');
-        }
-      });
-    });
-    */
-
-    // BOTÕES DE COMPRA DE EBOOKS
-    const ebookButtons = document.querySelectorAll('.ebook-buy-btn');
-    ebookButtons.forEach(button => {
-      button.addEventListener('click', () => {
-        alert('Sua compra foi realizada com sucesso!');
-        // Aqui você pode adicionar lógica adicional, como redirecionar para uma página de pagamento.
-      });
-    });
   </script>
 
 </body>
