@@ -15,12 +15,13 @@
   <meta property="og:image" content="imgs/social-share.jpg" />
   <meta property="og:url" content="https://seudominio.com" />
   <meta property="og:type" content="website" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-pV7oYw6Ih2h0UGM71uFAJoOx3qwSdz7oAlD6H/k9KEmjnmGBPSdqIl2KacOVGQH+tpE1EQvvqz6ctI0BJ5LUqw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    integrity="sha512-pV7oYw6Ih2h0UGM71uFAJoOx3qwSdz7oAlD6H/k9KEmjnmGBPSdqIl2KacOVGQH+tpE1EQvvqz6ctI0BJ5LUqw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
 
   <!-- FONTS -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;900&display=swap"
-    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;900&display=swap" rel="stylesheet">
 
   <style>
     /***********************************************
@@ -464,7 +465,7 @@
       }
     }
 
-   /***********************************************
+    /***********************************************
      * SEÇÃO: QUEM SOU EU (PROF. CRIS)
      ***********************************************/
     .prof-cris {
@@ -553,22 +554,24 @@
       margin-top: 2rem;
     }
 
-    
-.cta-button {
-  display: inline-block;
-  margin-top: 2rem;
-  padding: 12px 24px;
-  background-color: #6A0DAD; /* Cor contrastante lilás escuro */
-  color: #fff;
-  text-decoration: none;
-  font-size: 1.1rem;
-  border-radius: 50px;
-  transition: background-color 0.3s ease;
-}
 
-.cta-button:hover {
-  background-color: #4B0082; /* Tom mais escuro no hover */
-}
+    .cta-button {
+      display: inline-block;
+      margin-top: 2rem;
+      padding: 12px 24px;
+      background-color: #6A0DAD;
+      /* Cor contrastante lilás escuro */
+      color: #fff;
+      text-decoration: none;
+      font-size: 1.1rem;
+      border-radius: 50px;
+      transition: background-color 0.3s ease;
+    }
+
+    .cta-button:hover {
+      background-color: #4B0082;
+      /* Tom mais escuro no hover */
+    }
 
 
     /* Responsividade */
@@ -622,461 +625,513 @@
       }
     }
 
-   /***********************************************
+    /***********************************************
  * SEÇÃO: CURSO COMPLETO
  ***********************************************/
 
-/* Estilos Gerais do Curso Completo */
-.curso-completo {
-  background-color: var(--color-bg-primary);
-  padding: var(--padding-section) 20px;
-  color: var(--color-text-primary);
-}
-
-/* Cabeçalho do Curso */
-.curso-header {
-  text-align: center;
-  margin-bottom: 3rem;
-}
-
-.curso-header-title {
-  font-size: 2.5rem;
-  font-weight: 900;
-  background: var(--gradient-1);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  text-transform: uppercase;
-  margin-bottom: 1rem;
-}
-
-.curso-header-description {
-  font-size: 1.1rem;
-  max-width: 700px;
-  margin: 0 auto;
-  line-height: 1.6;
-}
-
-/* Destaque do Curso */
-.curso-destaque {
-  display: flex;
-  align-items: flex-start;
-  gap: 2rem;
-  flex-wrap: wrap;
-  margin-bottom: 4rem;
-}
-
-.destaque-texto {
-  flex: 1;
-  min-width: 300px;
-}
-
-.destaque-title {
-  font-size: 1.8rem;
-  margin-bottom: 1rem;
-  color: var(--color-accent);
-}
-
-.curso-benefits-list {
-  list-style: none;
-  padding: 0;
-  margin-bottom: 2rem;
-}
-
-.curso-benefits-list li {
-  display: flex;
-  align-items: center;
-  margin-bottom: 0.75rem;
-  font-size: 1rem;
-}
-
-.benefit-icon {
-  color: var(--color-primary);
-  margin-right: 0.5rem;
-  font-size: 1.2rem;
-}
-
-/* Promoção e Contador */
-.promo-countdown-container {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-  margin-top: 2rem;
-  background: var(--color-bg-secondary);
-  padding: 25px;
-  border-radius: var(--radius);
-  box-shadow: var(--box-shadow);
-  transition: var(--transition);
-}
-
-.promo-countdown-container:hover {
-  box-shadow: var(--box-shadow-hover);
-}
-
-.promo-banner {
-  background: var(--gradient-1);
-  padding: 20px;
-  border-radius: var(--radius);
-  color: var(--color-text-primary);
-  text-align: center;
-  position: relative;
-  overflow: hidden;
-  margin-bottom: 20px;
-  box-shadow: var(--box-shadow);
-}
-
-.promo-banner::before {
-  content: '';
-  position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background: rgba(255, 255, 255, 0.1);
-  transform: rotate(45deg);
-  pointer-events: none;
-  animation: moveBackground 10s linear infinite;
-}
-
-@keyframes moveBackground {
-  from {
-    transform: rotate(45deg) translate(0, 0);
-  }
-  to {
-    transform: rotate(45deg) translate(100px, 100px);
-  }
-}
-
-.promo-banner p {
-  font-size: 1.1rem;
-  margin-bottom: 0.5rem;
-  line-height: 1.4;
-}
-
-.promo-banner strong {
-  color: var(--color-primary);
-}
-
-/* Countdown Timer */
-.countdown-timer {
-  background: rgba(0, 0, 0, 0.1);
-  padding: 15px 20px;
-  border-radius: var(--radius);
-  text-align: center;
-}
-
-.timer {
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
-  flex-wrap: wrap;
-}
-
-.time-box {
-  background: #ffffff;
-  color: #333333;
-  padding: 12px 18px;
-  border-radius: 50px;
-  min-width: 80px;
-  box-shadow: var(--box-shadow);
-  transition: var(--transition);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.time-box:hover {
-  transform: translateY(-5px);
-  box-shadow: var(--box-shadow-hover);
-}
-
-.time-number {
-  font-size: 1.6rem;
-  font-weight: 700;
-}
-
-.time-label {
-  font-size: 0.9rem;
-  color: var(--color-text-muted);
-  margin-top: 2px;
-}
-
-/* Botão de CTA */
-.price-cta {
-  display: inline-block;
-  background-color: var(--color-btn);
-  color: #ffffff;
-  margin-top: 1rem;
-  padding: 12px 25px;
-  border-radius: 50px;
-  text-decoration: none;
-  font-weight: 600;
-  transition: background-color var(--transition), transform var(--transition);
-}
-
-.price-cta:hover {
-  background-color: var(--color-btn-hover);
-  transform: scale(1.05);
-}
-
-/* Imagem Destaque */
-.destaque-imagem {
-  flex: 1;
-  min-width: 300px;
-  text-align: center;
-}
-
-.imagem-wrapper {
-  max-width: 100%;
-  overflow: hidden;
-  border-radius: var(--radius);
-  box-shadow: var(--box-shadow);
-  transition: transform var(--transition);
-}
-
-.imagem-wrapper img {
-  width: 100%;
-  height: auto;
-  transition: transform var(--transition);
-}
-
-.imagem-wrapper:hover img {
-  transform: scale(1.05);
-}
-
-/* Benefícios Exclusivos */
-.curso-beneficios {
-  text-align: center;
-  padding: 4rem 0;
-}
-
-.beneficios-title {
-  font-size: 1.8rem;
-  margin-bottom: 2rem;
-  color: var(--color-accent);
-}
-
-.beneficios-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 1.5rem;
-}
-
-.beneficio-card {
-  background: var(--color-bg-secondary);
-  padding: 20px;
-  border-radius: var(--radius);
-  box-shadow: var(--box-shadow);
-  transition: transform var(--transition), box-shadow var(--transition);
-}
-
-.beneficio-card:hover {
-  transform: translateY(-5px);
-  box-shadow: var(--box-shadow-hover);
-}
-
-.beneficio-icon {
-  font-size: 2rem;
-  margin-bottom: 1rem;
-  color: var(--color-primary);
-}
-
-.beneficio-title {
-  font-size: 1.3rem;
-  margin-bottom: 0.5rem;
-  color: var(--color-text-primary);
-}
-
-.beneficio-description {
-  font-size: 1rem;
-  color: var(--color-text-muted);
-  line-height: 1.5;
-}
-
-/* Efeitos de Reveal (Scroll) */
-.reveal {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 1s ease, transform 1s ease;
-}
-
-.reveal.active {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* Responsividade */
-@media (max-width: 992px) {
-  .curso-destaque {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .promo-countdown-container {
-    padding: 20px;
-  }
-}
-
-@media (max-width: 768px) {
-  .promo-countdown-container {
-    flex-direction: column;
-  }
-
-  .timer {
-    gap: 0.5rem;
-  }
-
-  .time-box {
-    min-width: 60px;
-    padding: 10px 14px;
-  }
-
-  .time-number {
-    font-size: 1.4rem;
-  }
-
-  .time-label {
-    font-size: 0.8rem;
-  }
-}
-
-@media (max-width: 576px) {
-  .curso-header-title {
-    font-size: 2rem;
-  }
-
-  .curso-header-description {
-    font-size: 1rem;
-  }
-
-  .promo-banner p {
-    font-size: 1rem;
-  }
-
-  .time-box {
-    min-width: 50px;
-    padding: 8px 12px;
-  }
-
-  .time-number {
-    font-size: 1.2rem;
-  }
-
-  .time-label {
-    font-size: 0.7rem;
-  }
-
-  .price-cta {
-    padding: 20px 20px;
-    font-size: 0.9rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .promo-banner p {
-    font-size: 0.9rem;
-  }
-
-  .time-box {
-    min-width: 50px;
-    padding: 6px 10px;
-  }
-
-  .time-number {
-    font-size: 1rem;
-  }
-
-  .time-label {
-    font-size: 0.7rem;
-  }
-}
- /* Estilos Gerais da Seção */
- #mural-de-notas {
-    background-color: #f4f4f4;
-    padding: 60px 20px;
-  }
-
-  /* Container Centralizado */
-  #mural-de-notas .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    text-align: center;
-  }
-
-  /* Título da Seção */
-  #mural-de-notas h2 {
-    font-size: 2.5rem;
-    margin-bottom: 20px;
-    color: #333;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  }
-
-  /* Descrição da Seção */
-  #mural-de-notas p {
-    color: #666;
-    margin-bottom: 40px;
-    font-size: 1.1rem;
-    line-height: 1.6;
-  }
-
-  /* Container dos Cards */
-  .cards {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 30px;
-    justify-content: center;
-  }
-
-  /* Estilos dos Cards */
-  .card {
-    background: #fff;
-    border-radius: 12px;
-    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
-    width: 280px;
-    text-align: center;
-    padding: 20px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-  }
-
-  /* Efeito de Hover nos Cards */
-  .card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
-  }
-
-  /* Imagens dos Cards */
-  .card img {
-    width: 100%;
-    height: 180px;
-    object-fit: cover;
-    border-radius: 8px;
-    margin-bottom: 15px;
-  }
-
-  /* Título dos Alunos */
-  .card h3 {
-    margin: 10px 0;
-    color: #333;
-    font-size: 1.5rem;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  }
-
-  /* Nota dos Alunos */
-  .card p {
-    color: #555;
-    font-size: 1.1rem;
-  }
-
-  /* Responsividade para Telas Menores */
-  @media (max-width: 768px) {
-    .cards {
+    /* Estilos Gerais do Curso Completo */
+    .curso-completo {
+      background-color: var(--color-bg-primary);
+      padding: var(--padding-section) 20px;
+      color: var(--color-text-primary);
+    }
+
+    /* Cabeçalho do Curso */
+    .curso-header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .curso-header-title {
+      font-size: 2.5rem;
+      font-weight: 900;
+      background: var(--gradient-1);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+
+    .curso-header-description {
+      font-size: 1.1rem;
+      max-width: 700px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+
+    /* Destaque do Curso */
+    .curso-destaque {
+      display: flex;
+      align-items: flex-start;
+      gap: 2rem;
+      flex-wrap: wrap;
+      margin-bottom: 4rem;
+    }
+
+    .destaque-texto {
+      flex: 1;
+      min-width: 300px;
+    }
+
+    .destaque-title {
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+      color: var(--color-accent);
+    }
+
+    .curso-benefits-list {
+      list-style: none;
+      padding: 0;
+      margin-bottom: 2rem;
+    }
+
+    .curso-benefits-list li {
+      display: flex;
+      align-items: center;
+      margin-bottom: 0.75rem;
+      font-size: 1rem;
+    }
+
+    .benefit-icon {
+      color: var(--color-primary);
+      margin-right: 0.5rem;
+      font-size: 1.2rem;
+    }
+
+    /* Promoção e Contador */
+    .promo-countdown-container {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      margin-top: 2rem;
+      background: var(--color-bg-secondary);
+      padding: 25px;
+      border-radius: var(--radius);
+      box-shadow: var(--box-shadow);
+      transition: var(--transition);
+    }
+
+    .promo-countdown-container:hover {
+      box-shadow: var(--box-shadow-hover);
+    }
+
+    .promo-banner {
+      background: var(--gradient-1);
+      padding: 20px;
+      border-radius: var(--radius);
+      color: var(--color-text-primary);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      margin-bottom: 20px;
+      box-shadow: var(--box-shadow);
+    }
+
+    .promo-banner::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: rgba(255, 255, 255, 0.1);
+      transform: rotate(45deg);
+      pointer-events: none;
+      animation: moveBackground 10s linear infinite;
+    }
+
+    @keyframes moveBackground {
+      from {
+        transform: rotate(45deg) translate(0, 0);
+      }
+
+      to {
+        transform: rotate(45deg) translate(100px, 100px);
+      }
+    }
+
+    .promo-banner p {
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+      line-height: 1.4;
+    }
+
+    .promo-banner strong {
+      color: var(--color-primary);
+    }
+
+    /* Countdown Timer */
+    .countdown-timer {
+      background: rgba(0, 0, 0, 0.1);
+      padding: 15px 20px;
+      border-radius: var(--radius);
+      text-align: center;
+    }
+
+    .timer {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .time-box {
+      background: #ffffff;
+      color: #333333;
+      padding: 12px 18px;
+      border-radius: 50px;
+      min-width: 80px;
+      box-shadow: var(--box-shadow);
+      transition: var(--transition);
+      display: flex;
       flex-direction: column;
       align-items: center;
     }
 
-    .card {
-      width: 90%;
+    .time-box:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--box-shadow-hover);
     }
-  }
+
+    .time-number {
+      font-size: 1.6rem;
+      font-weight: 700;
+    }
+
+    .time-label {
+      font-size: 0.9rem;
+      color: var(--color-text-muted);
+      margin-top: 2px;
+    }
+
+    /* Botão de CTA */
+    .price-cta {
+      display: inline-block;
+      background-color: var(--color-btn);
+      color: #ffffff;
+      margin-top: 1rem;
+      padding: 12px 25px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: background-color var(--transition), transform var(--transition);
+    }
+
+    .price-cta:hover {
+      background-color: var(--color-btn-hover);
+      transform: scale(1.05);
+    }
+
+    /* Imagem Destaque */
+    .destaque-imagem {
+      flex: 1;
+      min-width: 300px;
+      text-align: center;
+    }
+
+    .imagem-wrapper {
+      max-width: 100%;
+      overflow: hidden;
+      border-radius: var(--radius);
+      box-shadow: var(--box-shadow);
+      transition: transform var(--transition);
+    }
+
+    .imagem-wrapper img {
+      width: 100%;
+      height: auto;
+      transition: transform var(--transition);
+    }
+
+    .imagem-wrapper:hover img {
+      transform: scale(1.05);
+    }
+
+    /* Benefícios Exclusivos */
+    .curso-beneficios {
+      text-align: center;
+      padding: 4rem 0;
+    }
+
+    .beneficios-title {
+      font-size: 1.8rem;
+      margin-bottom: 2rem;
+      color: var(--color-accent);
+    }
+
+    .beneficios-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .beneficio-card {
+      background: var(--color-bg-secondary);
+      padding: 20px;
+      border-radius: var(--radius);
+      box-shadow: var(--box-shadow);
+      transition: transform var(--transition), box-shadow var(--transition);
+    }
+
+    .beneficio-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--box-shadow-hover);
+    }
+
+    .beneficio-icon {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: var(--color-primary);
+    }
+
+    .beneficio-title {
+      font-size: 1.3rem;
+      margin-bottom: 0.5rem;
+      color: var(--color-text-primary);
+    }
+
+    .beneficio-description {
+      font-size: 1rem;
+      color: var(--color-text-muted);
+      line-height: 1.5;
+    }
+
+    /* Efeitos de Reveal (Scroll) */
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 1s ease, transform 1s ease;
+    }
+
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Responsividade */
+    @media (max-width: 992px) {
+      .curso-destaque {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .promo-countdown-container {
+        padding: 20px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .promo-countdown-container {
+        flex-direction: column;
+      }
+
+      .timer {
+        gap: 0.5rem;
+      }
+
+      .time-box {
+        min-width: 60px;
+        padding: 10px 14px;
+      }
+
+      .time-number {
+        font-size: 1.4rem;
+      }
+
+      .time-label {
+        font-size: 0.8rem;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .curso-header-title {
+        font-size: 2rem;
+      }
+
+      .curso-header-description {
+        font-size: 1rem;
+      }
+
+      .promo-banner p {
+        font-size: 1rem;
+      }
+
+      .time-box {
+        min-width: 50px;
+        padding: 8px 12px;
+      }
+
+      .time-number {
+        font-size: 1.2rem;
+      }
+
+      .time-label {
+        font-size: 0.7rem;
+      }
+
+      .price-cta {
+        padding: 20px 20px;
+        font-size: 0.9rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .promo-banner p {
+        font-size: 0.9rem;
+      }
+
+      .time-box {
+        min-width: 50px;
+        padding: 6px 10px;
+      }
+
+      .time-number {
+        font-size: 1rem;
+      }
+
+      .time-label {
+        font-size: 0.7rem;
+      }
+    }
+
+    /* Estilos Gerais da Seção */
+    #mural-de-notas {
+      background-color: var(--color-bg-primary);
+      padding: 60px 20px;
+    }
+
+    /* Container Centralizado */
+    #mural-de-notas .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    /* Título da Seção */
+    #mural-de-notas h2 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+      color: #333;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    /* Descrição da Seção */
+    #mural-de-notas p {
+      color: #666;
+      margin-bottom: 40px;
+      font-size: 1.1rem;
+      line-height: 1.6;
+    }
+
+    /* Container dos Cards */
+    .cards {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      justify-content: center;
+    }
+
+    /* Estilos dos Cards */
+    .card {
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+      width: 280px;
+      text-align: center;
+      padding: 20px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    /* Efeito de Hover nos Cards */
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Imagens dos Cards */
+    .card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 8px;
+      margin-bottom: 15px;
+    }
+
+    /* Título dos Alunos */
+    .card h3 {
+      margin: 10px 0;
+      color: #333;
+      font-size: 1.5rem;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    /* Nota dos Alunos */
+    .card p {
+      color: #555;
+      font-size: 1.1rem;
+    }
+
+    /* Responsividade para Telas Menores */
+    @media (max-width: 768px) {
+      .cards {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .card {
+        width: 90%;
+      }
+    }
+
+    /* Respons
+  /* Estilos Adicionais para a Seção Mural de Notas */
+
+    /* Título da Seção */
+    #mural-de-notas h2 {
+      font-size: 2.8rem;
+      margin-bottom: 15px;
+      color: var(--color-primary);
+      font-family: 'Poppins', sans-serif;
+    }
+
+    /* Descrição da Seção */
+    #mural-de-notas p {
+      color: var(--color-text-muted);
+      margin-bottom: 30px;
+      font-size: 1.2rem;
+      line-height: 1.6;
+    }
+
+    /* Destaque na Descrição */
+    #mural-de-notas p span {
+      font-weight: 700;
+    }
+
+    /* Chamada para Ação */
+    .mural-cta {
+      margin-top: 30px;
+    }
+
+    .cta-container {
+      margin-top: 30px;
+    }
+
+    /* Responsividade para a Chamada para Ação */
+    @media (max-width: 768px) {
+      #mural-de-notas h2 {
+        font-size: 2.2rem;
+      }
+
+      #mural-de-notas p {
+        font-size: 1rem;
+      }
+
+      .btn.price-cta {
+        padding: 12px 30px;
+        font-size: 1rem;
+      }
+    }
+
     /***********************************************
      * SEÇÃO: MÓDULOS DO CURSO
      ***********************************************/
@@ -1452,94 +1507,92 @@
       }
     }
 
-  
-        /***********************************************
+
+    /***********************************************
         * 10. FOOTER
         ***********************************************/
-        .footer {
-        padding: 50px 20px;
-        text-align: center;
-        background: #2c3e50;
-        color: #bdc3c7;
-        position: relative;
-        }
+    .footer {
+      padding: 50px 20px;
+      text-align: center;
+      background: #2c3e50;
+      color: #bdc3c7;
+      position: relative;
+    }
 
-        .footer p {
-        margin: 10px 0;
-        font-size: 0.9rem;
-        }
+    .footer p {
+      margin: 10px 0;
+      font-size: 0.9rem;
+    }
 
-        .footer a {
-        color: #bdc3c7;
-        transition: color 0.3s;
-        }
+    .footer a {
+      color: #bdc3c7;
+      transition: color 0.3s;
+    }
 
-        .footer a:hover {
-        color: var(--color-primary);
-        }
+    .footer a:hover {
+      color: var(--color-primary);
+    }
 
-        .footer::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 100px;
-        height: 5px;
-        background: var(--color-primary);
-        border-radius: 2px;
-        }
+    .footer::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100px;
+      height: 5px;
+      background: var(--color-primary);
+      border-radius: 2px;
+    }
 
-        .social-icons a {
-        color: #bdc3c7;
-        margin: 0 10px;
-        font-size: 1.2rem;
-        transition: color 0.3s;
-        }
+    .social-icons a {
+      color: #bdc3c7;
+      margin: 0 10px;
+      font-size: 1.2rem;
+      transition: color 0.3s;
+    }
 
-        .social-icons a:hover {
-        color: var(--color-primary);
-        }
+    .social-icons a:hover {
+      color: var(--color-primary);
+    }
 
-        .developed-by {
-        text-align: center;
-        margin-top: 20px;
-        font-size: 0.9rem;
-        color: #aaa;
-        }
+    .developed-by {
+      text-align: center;
+      margin-top: 20px;
+      font-size: 0.9rem;
+      color: #aaa;
+    }
 
-        .developed-by a {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        text-decoration: none;
-        color: inherit;
-        }
+    .developed-by a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      color: inherit;
+    }
 
-        .developed-by a span {
-        margin-right: 5px;
-        }
+    .developed-by a span {
+      margin-right: 5px;
+    }
 
-        .developed-by img {
-        height: 30px;
-        transition: transform 0.3s ease;
-        }
+    .developed-by img {
+      height: 30px;
+      transition: transform 0.3s ease;
+    }
 
-        .developed-by a:hover img {
-        transform: scale(1.1);
-        }
+    .developed-by a:hover img {
+      transform: scale(1.1);
+    }
 
-        @media (max-width: 576px) {
-        .developed-by img {
+    @media (max-width: 576px) {
+      .developed-by img {
         height: 25px;
-        }
+      }
 
-        .developed-by {
+      .developed-by {
         font-size: 0.8rem;
-        }
-        }
-
-
+      }
+    }
   </style>
 </head>
 
@@ -1620,141 +1673,144 @@
     </section>
 
     <!-- SEÇÃO: QUEM SOU EU (PROF. CRIS) -->
-<section class="prof-cris reveal" id="prof-cris">
-  <div class="prof-cris-container">
-    <h2 class="prof-cris-title">Professora Cris - Redação ENEM</h2>
-    <div class="prof-cris-wrapper">
-      <div class="prof-cris-image">
-        <div class="prof-cris-img-container">
-          <!-- Troque a foto para a sua, se desejar -->
-          <img src="imgs/profe.png" alt="Foto da Professora Cris" loading="lazy" />
+    <section class="prof-cris reveal" id="prof-cris">
+      <div class="prof-cris-container">
+        <h2 class="prof-cris-title">Professora Cris - Redação ENEM</h2>
+        <div class="prof-cris-wrapper">
+          <div class="prof-cris-image">
+            <div class="prof-cris-img-container">
+              <!-- Troque a foto para a sua, se desejar -->
+              <img src="imgs/profe.png" alt="Foto da Professora Cris" loading="lazy" />
+            </div>
+          </div>
+          <div class="prof-cris-text">
+            <p><strong>Quem sou eu?</strong></p>
+            <p>
+              Meu nome é Cristina, mais conhecida como Professora Cris. Sou professora de redação e
+              apaixonada por ajudar alunos e professores a superar seus desafios na escrita. Há 15 anos
+              trabalho com a preparação de estudantes para o Enem e Vestibulares, sempre com o objetivo
+              de descomplicar a redação e transformar obstáculos em conquistas.
+            </p>
+            <p>
+              Durante minha trajetória, percebi que muitas vezes o que impede uma boa redação não é falta
+              de ideias, mas a ausência de um Projeto Estratégico para organizar o texto. Esse projeto
+              auxilia o estudante a dar um grande passo rumo à excelência na redação do ENEM. Através de
+              uma abordagem prática, contínua e com foco na melhoria constante, o aluno se torna capaz de
+              atingir e superar a pontuação de 900, destacando-se pela qualidade e profundidade de seus
+              textos, o que é crucial para garantir uma vaga nas melhores universidades.
+            </p>
+            <p>
+              Minha experiência também inclui a atuação como corretora da redação do Enem e do Vestibular
+              da UFRGS, o que me deu uma visão ainda mais ampla sobre os critérios avaliativos e o que
+              realmente é necessário para alcançar uma redação de excelência. Essas experiências permitem
+              oferecer ferramentas que realmente fazem a diferença, ajudando você a escrever com confiança
+              e segurança, seja para alcançar a nota máxima no Enem.
+            </p>
+            <p>
+              Acredito que escrever é uma habilidade que pode ser desenvolvida com orientação e prática, e é
+              isso que quero proporcionar a você: um método eficiente e direto. Agora que você já me conhece,
+              vamos juntos nessa jornada rumo à sua aprovação!
+            </p>
+            <!-- CTA Adicionado -->
+            <a href="https://wa.me/5192612205" target="_blank" class="cta-button">Entre em Contato</a>
+          </div>
         </div>
       </div>
-      <div class="prof-cris-text">
-        <p><strong>Quem sou eu?</strong></p>
-        <p>
-          Meu nome é Cristina, mais conhecida como Professora Cris. Sou professora de redação e
-          apaixonada por ajudar alunos e professores a superar seus desafios na escrita. Há 15 anos
-          trabalho com a preparação de estudantes para o Enem e Vestibulares, sempre com o objetivo
-          de descomplicar a redação e transformar obstáculos em conquistas.
-        </p>
-        <p>
-          Durante minha trajetória, percebi que muitas vezes o que impede uma boa redação não é falta
-          de ideias, mas a ausência de um Projeto Estratégico para organizar o texto. Esse projeto
-          auxilia o estudante a dar um grande passo rumo à excelência na redação do ENEM. Através de
-          uma abordagem prática, contínua e com foco na melhoria constante, o aluno se torna capaz de
-          atingir e superar a pontuação de 900, destacando-se pela qualidade e profundidade de seus
-          textos, o que é crucial para garantir uma vaga nas melhores universidades.
-        </p>
-        <p>
-          Minha experiência também inclui a atuação como corretora da redação do Enem e do Vestibular
-          da UFRGS, o que me deu uma visão ainda mais ampla sobre os critérios avaliativos e o que
-          realmente é necessário para alcançar uma redação de excelência. Essas experiências permitem
-          oferecer ferramentas que realmente fazem a diferença, ajudando você a escrever com confiança
-          e segurança, seja para alcançar a nota máxima no Enem.
-        </p>
-        <p>
-          Acredito que escrever é uma habilidade que pode ser desenvolvida com orientação e prática, e é
-          isso que quero proporcionar a você: um método eficiente e direto. Agora que você já me conhece,
-          vamos juntos nessa jornada rumo à sua aprovação!
-        </p>
-        <!-- CTA Adicionado -->
-        <a href="https://wa.me/5192612205" target="_blank" class="cta-button">Entre em Contato</a>
-      </div>
-    </div>
-  </div>
-</section>
+    </section>
 
 
-   <!-- SEÇÃO: CURSO COMPLETO -->
-<section class="curso-completo reveal" id="curso">
-  <div class="container">
-    <!-- Cabeçalho da Seção -->
-    <div class="curso-header">
-      <h2 class="curso-header-title">Curso Completo de Redação</h2>
-      <p class="curso-header-description">A melhor estrutura para você dominar as competências do ENEM e atingir 900+ pontos.</p>
-    </div>
+    <!-- SEÇÃO: CURSO COMPLETO -->
+    <section class="curso-completo reveal" id="curso">
+      <div class="container">
+        <!-- Cabeçalho da Seção -->
+        <div class="curso-header">
+          <h2 class="curso-header-title">Curso Completo de Redação</h2>
+          <p class="curso-header-description">A melhor estrutura para você dominar as competências do ENEM e atingir
+            900+ pontos.</p>
+        </div>
 
-    <!-- Destaque do Curso -->
-    <div class="curso-destaque">
-      <!-- Texto de Destaque -->
-      <div class="destaque-texto">
-        <h3 class="destaque-title">Por que se inscrever?</h3>
-        <ul class="curso-benefits-list">
-          <li><i class="benefit-icon">✔️</i> Método testado e aprovado</li>
-          <li><i class="benefit-icon">✔️</i> Aulas objetivas e práticas</li>
-          <li><i class="benefit-icon">✔️</i> Estratégias para 900+ pontos</li>
-          <li><i class="benefit-icon">✔️</i> Suporte direto com a professora</li>
-        </ul>
+        <!-- Destaque do Curso -->
+        <div class="curso-destaque">
+          <!-- Texto de Destaque -->
+          <div class="destaque-texto">
+            <h3 class="destaque-title">Por que se inscrever?</h3>
+            <ul class="curso-benefits-list">
+              <li><i class="benefit-icon">✔️</i> Método testado e aprovado</li>
+              <li><i class="benefit-icon">✔️</i> Aulas objetivas e práticas</li>
+              <li><i class="benefit-icon">✔️</i> Estratégias para 900+ pontos</li>
+              <li><i class="benefit-icon">✔️</i> Suporte direto com a professora</li>
+            </ul>
 
-        <!-- Promoção Especial com Contador -->
-        <div class="promo-countdown-container">
-          <div class="promo-banner">
-            <p>🎉 <strong>PROMOÇÃO EXCLUSIVA</strong> </p>
+            <!-- Promoção Especial com Contador -->
+            <div class="promo-countdown-container">
+              <div class="promo-banner">
+                <p>🎉 <strong>PROMOÇÃO EXCLUSIVA</strong> </p>
+              </div>
+
+              <div class="countdown-timer">
+                <div class="timer">
+                  <div class="time-box">
+                    <span class="time-number" id="days">10</span>
+                    <span class="time-label">Dias</span>
+                  </div>
+                  <div class="time-box">
+                    <span class="time-number" id="hours">23</span>
+                    <span class="time-label">Horas</span>
+                  </div>
+                  <div class="time-box">
+                    <span class="time-number" id="minutes">59</span>
+                    <span class="time-label">Minutos</span>
+                  </div>
+                  <div class="time-box">
+                    <span class="time-number" id="seconds">59</span>
+                    <span class="time-label">Segundos</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Botão de CTA -->
+            <a href="#mentoria" class="btn price-cta">Quero Garantir Minha Vaga</a>
           </div>
 
-          <div class="countdown-timer">
-            <div class="timer">
-              <div class="time-box">
-                <span class="time-number" id="days">10</span>
-                <span class="time-label">Dias</span>
-              </div>
-              <div class="time-box">
-                <span class="time-number" id="hours">23</span>
-                <span class="time-label">Horas</span>
-              </div>
-              <div class="time-box">
-                <span class="time-number" id="minutes">59</span>
-                <span class="time-label">Minutos</span>
-              </div>
-              <div class="time-box">
-                <span class="time-number" id="seconds">59</span>
-                <span class="time-label">Segundos</span>
-              </div>
+          <!-- Imagem de Destaque -->
+          <div class="destaque-imagem">
+            <div class="imagem-wrapper">
+              <img src="imgs/redacao.png" alt="Imagem representando o curso de Redação" />
             </div>
           </div>
         </div>
 
-        <!-- Botão de CTA -->
-        <a href="#mentoria" class="btn price-cta">Quero Garantir Minha Vaga</a>
-      </div>
-
-      <!-- Imagem de Destaque -->
-      <div class="destaque-imagem">
-        <div class="imagem-wrapper">
-          <img src="imgs/redacao.png" alt="Imagem representando o curso de Redação" />
-        </div>
-      </div>
-    </div>
-
-    <!-- Benefícios Exclusivos -->
-    <section class="curso-beneficios">
-      <h3 class="beneficios-title">Benefícios Exclusivos</h3>
-      <div class="beneficios-grid">
-        <article class="beneficio-card">
-          <i class="beneficio-icon">🚀</i>
-          <h4 class="beneficio-title">Acesso Vitalício</h4>
-          <p class="beneficio-description">Conteúdos e atualizações disponíveis para você sem custo adicional.</p>
-        </article>
-        <article class="beneficio-card">
-          <i class="beneficio-icon">🕒</i>
-          <h4 class="beneficio-title">Flexibilidade de Horários</h4>
-          <p class="beneficio-description">Assista às aulas no seu ritmo, seja pela manhã, tarde ou noite.</p>
-        </article>
-        <article class="beneficio-card">
-          <i class="beneficio-icon">⭐</i>
-          <h4 class="beneficio-title">Material Bônus</h4>
-          <p class="beneficio-description">Receba apostilas e planos de estudo focados nos temas mais recorrentes.</p>
-        </article>
-        <article class="beneficio-card">
-          <i class="beneficio-icon">💬</i>
-          <h4 class="beneficio-title">Suporte Personalizado</h4>
-          <p class="beneficio-description">Tire dúvidas diretamente com a Professora Cris, garantindo feedback rápido.</p>
-        </article>
+        <!-- Benefícios Exclusivos -->
+        <section class="curso-beneficios">
+          <h3 class="beneficios-title">Benefícios Exclusivos</h3>
+          <div class="beneficios-grid">
+            <article class="beneficio-card">
+              <i class="beneficio-icon">🚀</i>
+              <h4 class="beneficio-title">Acesso Vitalício</h4>
+              <p class="beneficio-description">Conteúdos e atualizações disponíveis para você sem custo adicional.</p>
+            </article>
+            <article class="beneficio-card">
+              <i class="beneficio-icon">🕒</i>
+              <h4 class="beneficio-title">Flexibilidade de Horários</h4>
+              <p class="beneficio-description">Assista às aulas no seu ritmo, seja pela manhã, tarde ou noite.</p>
+            </article>
+            <article class="beneficio-card">
+              <i class="beneficio-icon">⭐</i>
+              <h4 class="beneficio-title">Material Bônus</h4>
+              <p class="beneficio-description">Receba apostilas e planos de estudo focados nos temas mais recorrentes.
+              </p>
+            </article>
+            <article class="beneficio-card">
+              <i class="beneficio-icon">💬</i>
+              <h4 class="beneficio-title">Suporte Personalizado</h4>
+              <p class="beneficio-description">Tire dúvidas diretamente com a Professora Cris, garantindo feedback
+                rápido.</p>
+            </article>
+          </div>
+        </section>
       </div>
     </section>
-  </div>
-</section>
 
 
     <!-- SEÇÃO: MÉTODO PE 900+ -->
@@ -1888,77 +1944,109 @@
       </div>
     </section>
 
-<!-- SEÇÃO: EBOOKS -->
-<section class="ebooks reveal" id="ebooks">
-  <h2>Ebooks Exclusivos</h2>
-  <div class="tagline">Desconto por tempo limitado!</div>
-  <p>Aprimore ainda mais seus estudos com materiais complementares. Aproveite nossa oferta especial!</p>
-  <div class="ebook-grid">
-    <article class="ebook-card">
-      <div class="badge">Novo</div>
-      <img src="imgs/ebook1.jpg" alt="Capa do Ebook Estratégias de Estudo" loading="lazy" />
-      <h3>Gramática Essencial: Guia Prático para Redação ENEM, Vestibular e Concurso</h3>
-      <p>Domine os principais tópicos de gramática e melhore significativamente suas redações. Este guia prático
-        aborda de forma clara e objetiva as regras essenciais para alcançar excelência em provas e concursos.</p>
-      <a target="_blank" href="https://profcristinafracasso.hotmart.host/gramatica-essencial-seu-guia-pratico-para-redacao-enem-vestibular-e-concursos-6eed4697-a7a4-4ab6-91b0-34822e87e5c1" class="ebook-buy-btn">Quero Este Ebook</a>
-    </article>
-    <article class="ebook-card">
-      <div class="badge">Novo</div>
-      <img src="imgs/ebook2.jpg" alt="Capa do Ebook Memorização Avançada" loading="lazy" />
-      <h3>10 Passos para uma Redação de Excelência</h3>
-      <p>Descubra um plano estruturado para conquistar notas acima de 900 na redação do ENEM. Com dicas práticas e
-        técnicas testadas, este guia vai transformar sua escrita e te preparar para se destacar.</p>
-      <!-- Link corrigido para o ebook correto -->
-      <a target="_blank" href="https://profcristinafracasso.hotmart.host/10-passos-para-uma-redacao-de-excelencia-URL-CORRETA" rel="" class="ebook-buy-btn">Quero Este Ebook</a>
-    </article>
-    <article class="ebook-card">
-      <img src="imgs/ebook.png" alt="Capa do Ebook Foco & Produtividade" loading="lazy" />
-      <h3>Desvendando a Redação do ENEM com o Método PE 900+</h3>
-      <p>Aprenda passo a passo a construir uma redação de alta pontuação com o exclusivo Método PE 900+. Dicas
-        práticas e técnicas desenvolvidas para te ajudar a alcançar o topo da avaliação.</p>
-      <!-- Substituir o botão por um link com o href correto -->
-      <a target="_blank" href="https://profcristinafracasso.hotmart.host/desvendando-a-redacao-do-enem-com-o-metodo-pe-900-plus-URL-CORRETA" class="ebook-buy-btn">Quero Este Ebook</a>
-    </article>
-  </div>
-</section>
-
-<section id="mural-de-notas">
-  <div class="container">
-    <h2>Mural de Notas</h2>
-    <p>Parabenizamos nossos alunos pelos excelentes resultados na redação do ENEM!</p>
-
-    <div class="cards">
-      <!-- Card 1 -->
-      <div class="card">
-        <img src="/path/to/4cad4ab2-a49a-4b47-9239-6c1cff633d5a.jpg" alt="Nota de Thiago Barbosa">
-        <h3>Thiago Barbosa</h3>
-        <p>Nota: <strong>980</strong></p>
+    <!-- SEÇÃO: EBOOKS -->
+    <section class="ebooks reveal" id="ebooks">
+      <h2>Ebooks Exclusivos</h2>
+      <div class="tagline">Desconto por tempo limitado!</div>
+      <p>Aprimore ainda mais seus estudos com materiais complementares. Aproveite nossa oferta especial!</p>
+      <div class="ebook-grid">
+        <article class="ebook-card">
+          <div class="badge">Novo</div>
+          <img src="imgs/ebook1.jpg" alt="Capa do Ebook Estratégias de Estudo" loading="lazy" />
+          <h3>Gramática Essencial: Guia Prático para Redação ENEM, Vestibular e Concurso</h3>
+          <p>Domine os principais tópicos de gramática e melhore significativamente suas redações. Este guia prático
+            aborda de forma clara e objetiva as regras essenciais para alcançar excelência em provas e concursos.</p>
+          <a target="_blank"
+            href="https://profcristinafracasso.hotmart.host/gramatica-essencial-seu-guia-pratico-para-redacao-enem-vestibular-e-concursos-6eed4697-a7a4-4ab6-91b0-34822e87e5c1"
+            class="ebook-buy-btn">Quero Este Ebook</a>
+        </article>
+        <article class="ebook-card">
+          <div class="badge">Novo</div>
+          <img src="imgs/ebook2.jpg" alt="Capa do Ebook Memorização Avançada" loading="lazy" />
+          <h3>10 Passos para uma Redação de Excelência</h3>
+          <p>Descubra um plano estruturado para conquistar notas acima de 900 na redação do ENEM. Com dicas práticas e
+            técnicas testadas, este guia vai transformar sua escrita e te preparar para se destacar.</p>
+          <!-- Link corrigido para o ebook correto -->
+          <a target="_blank"
+            href="https://profcristinafracasso.hotmart.host/10-passos-para-uma-redacao-de-excelencia-URL-CORRETA" rel=""
+            class="ebook-buy-btn">Quero Este Ebook</a>
+        </article>
+        <article class="ebook-card">
+          <img src="imgs/ebook.png" alt="Capa do Ebook Foco & Produtividade" loading="lazy" />
+          <h3>Desvendando a Redação do ENEM com o Método PE 900+</h3>
+          <p>Aprenda passo a passo a construir uma redação de alta pontuação com o exclusivo Método PE 900+. Dicas
+            práticas e técnicas desenvolvidas para te ajudar a alcançar o topo da avaliação.</p>
+          <!-- Substituir o botão por um link com o href correto -->
+          <a target="_blank"
+            href="https://profcristinafracasso.hotmart.host/desvendando-a-redacao-do-enem-com-o-metodo-pe-900-plus-URL-CORRETA"
+            class="ebook-buy-btn">Quero Este Ebook</a>
+        </article>
       </div>
-
-      <!-- Card 2 -->
-      <div class="card">
-        <img src="/path/to/e438e177-02cf-4322-83c0-525b30deeba0.jpg" alt="Nota de Laura Delatorre">
-        <h3>Laura Delatorre</h3>
-        <p>Nota: <strong>940</strong></p>
+    </section>
+    <section id="mural-de-notas">
+      <div class="container">
+        <h2>Nossos Alunos 900+</h2>
+        <p>Esses são alguns dos nossos alunos que alcançaram mais de <strong>900</strong> na redação do ENEM. <span style="color: var(--color-primary);">Venha ser o próximo!</span></p>
+    
+        <div class="cards">
+          <!-- Card 1 -->
+          <div class="card">
+            <img src="/imgs/mural4.jpg" alt="Nota de Thiago Barbosa">
+            <h3>Thiago Barbosa</h3>
+            <p>Nota: <strong>980</strong></p>
+          </div>
+    
+          <!-- Card 2 -->
+          <div class="card">
+            <img src="/imgs/mural7.jpg" alt="Nota de Laura Delatorre">
+            <h3>Laura Delatorre</h3>
+            <p>Nota: <strong>940</strong></p>
+          </div>
+    
+          <!-- Card 3 -->
+          <div class="card">
+            <img src="/imgs/mural5.jpg" alt="Nota de Bárbara Pécora">
+            <h3>Bárbara Pécora</h3>
+            <p>Nota: <strong>920</strong></p>
+          </div>
+    
+          <!-- Card 4 -->
+          <div class="card">
+            <img src="/imgs/mural3.jpg" alt="Nota de Geórgia Teixeira">
+            <h3>Geórgia Teixeira</h3>
+            <p>Nota: <strong>900</strong></p>
+          </div>
+    
+          <!-- Card 6 -->
+          <div class="card">
+            <img src="/imgs/mural6.jpg" alt="Nota de Mariana Oliveira">
+            <h3>Lavinia dos Reis</h3>
+            <p>Nota: <strong>940</strong></p>
+          </div>
+    
+    
+          <!-- Card 8 -->
+          <div class="card">
+            <img src="/imgs/mural9.jpg" alt="Nota de Juliana Almeida">
+            <h3>Mariana Lopes</h3>
+            <p>Nota: <strong>920</strong></p>
+          </div>
+    
+          <!-- Card 9 -->
+          <div class="card">
+            <img src="/imgs/mural8.jpg" alt="Nota de Pedro Henrique">
+            <h3>Pedro Soares</h3>
+            <p>Nota: <strong>920</strong></p>
+          </div>
+        </div>
+    
+        <!-- Chamada para Ação -->
+        <div class="cta-container">
+          <a href="mentoria.html" class="btn price-cta">Quero Garantir Minha Vaga</a>
+        </div>
       </div>
-
-      <!-- Card 3 -->
-      <div class="card">
-        <img src="imgs/mural2.png" alt="Nota de Bárbara Pécora">
-        <h3>Bárbara Pécora</h3>
-        <p>Nota: <strong>920</strong></p>
-      </div>
-
-      <!-- Card 4 -->
-      <div class="card">
-        <img src="imgs/mural1.png" alt="Nota de Geórgia Teixeira">
-        <h3>Geórgia Teixeira</h3>
-        <p>Nota: <strong>900</strong></p>
-      </div>
-    </div>
-  </div>
-</section>
-
+    </section>
+    
 
   </main>
 
@@ -1969,10 +2057,12 @@
       <a href="#politica-privacidade">Política de Privacidade</a>
     </p>
     <div class="social-icons mt-3">
-      <a target="_blank" href="https://www.facebook.com/professoracris_redacaoenem" aria-label="Facebook" rel="noopener noreferrer">
+      <a target="_blank" href="https://www.facebook.com/professoracris_redacaoenem" aria-label="Facebook"
+        rel="noopener noreferrer">
         <i class="fab fa-facebook-f"></i>
       </a>
-      <a target="_blank" href="https://www.instagram.com/professoracris_redacaoenem/" aria-label="Instagram" rel="noopener noreferrer">
+      <a target="_blank" href="https://www.instagram.com/professoracris_redacaoenem/" aria-label="Instagram"
+        rel="noopener noreferrer">
         <i class="fab fa-instagram"></i>
       </a>
     </div>
